@@ -358,4 +358,11 @@ template {
 
 /* Begin custom CSS
    ========================================================================== */
-   
+
+/**
+ * Set up grid containers.
+ */
+
+body {
+  display: grid;
+}
