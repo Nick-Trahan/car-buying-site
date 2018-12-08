@@ -347,3 +347,15 @@ template {
 [hidden] {
   display: none;
 }
+
+/**
+ * Universial border box.
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Begin custom CSS
+   ========================================================================== */
+   
