@@ -376,8 +376,10 @@ body {
   /*grid-template-rows: ;
   grid-template-columns: ;*/
 
-  background-color: #3c3744;
-
+  background: linear-gradient(164deg, rgba(110,68,255,1) 0%, rgba(64,45,191,1) 25%, rgba(47,49,171,1) 40%, rgba(48,52,196,1) 60%, rgba(32,37,233,1) 75%, rgba(110,68,255,1) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -390,12 +392,12 @@ h2 {
   display: grid;
   grid-template-rows: repeat(2, 0.5fr) 1fr;
   grid-template-columns: repeat(3, 1fr);
-
   margin: 0 5%;
-
-  /* background: linear-gradient(164deg, rgba(110,68,255,1) 0%, rgba(64,45,191,1) 25%, rgba(47,49,171,1) 40%, rgba(48,52,196,1) 60%, rgba(32,37,233,1) 75%, rgba(110,68,255,1) 100%); */
-  background: linear-gradient(180deg, rgba(9,12,155,1) 0%, rgba(251,255,241,1) 75%, rgba(251,255,241,1) 100%);
+  /*background: linear-gradient(164deg, rgba(110,68,255,1) 0%, rgba(64,45,191,1) 25%, rgba(47,49,171,1) 40%, rgba(48,52,196,1) 60%, rgba(32,37,233,1) 75%, rgba(110,68,255,1) 100%);*/
+  /*background: linear-gradient(180deg, rgba(9,12,155,1) 0%, rgba(251,255,241,1) 75%, rgba(251,255,241,1) 100%); */
+  background-color: #3c3744
 }
+
 
 /**
  * HEADER
@@ -444,5 +446,5 @@ h2 {
 
 main {
   margin: 0 5%;
-  background-color: #fbfff1;
+  background-color: #3c3744;
 }
