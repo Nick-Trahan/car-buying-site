@@ -435,7 +435,7 @@ h2 {
   max-width: 600px;
   margin: 0 auto;
   
-  padding: 2px;
+  padding: 4px;
   background: #fbfff1;
   /*background: linear-gradient(164deg, rgba(110,68,255,1) 0%, rgba(64,45,191,1) 25%, rgba(47,49,171,1) 40%, rgba(48,52,196,1) 60%, rgba(32,37,233,1) 75%, rgba(110,68,255,1) 100%);*/
 }
@@ -444,7 +444,14 @@ h2 {
  * MAIN
  */
 
+#container {
+  margin: 0 5%;
+  
+  background-color: #3c3744;
+}
+
 main {
   margin: 0 5%;
-  background-color: #3c3744;
+
+  color: #fbfff1;
 }
