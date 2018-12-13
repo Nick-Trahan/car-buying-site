@@ -479,11 +479,16 @@ main {
   margin-bottom: 0;
 }
 
-.button {
-  width: 180px;
+#btn-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  width: 120px;
   height: 50px;
 
-  margin: 0 auto 3em;
+  margin-bottom: 3em;
 
   vertical-align: middle;
 
@@ -498,7 +503,7 @@ main {
   cursor: pointer;
 }
 
-.button:focus {
+button:focus {
   outline: 0px;
 
   box-shadow: 0 0 10px 2px #b4c5e4;
@@ -506,12 +511,19 @@ main {
   transition: 0.02s;
 }
 
-.button:active {
+button:active {
   transform: scale(0.95);
   transition: 0.05s;
 }
 
-.button span {
+#get-started {
+  width: 180px;
+  
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#get-started span {
   position: relative;
 
   display: inline-block;
@@ -521,7 +533,7 @@ main {
   transition: 0.5s;
 }
 
-.button span:after {
+#get-started span:after {
   position: absolute;
 
   top: -12px;
@@ -534,11 +546,11 @@ main {
   transition: 0.5s;
 }
 
-.button:hover span {
+#get-started:hover span {
   padding-right: 1.5em;
 }
 
-.button:hover span:after {
+#get-started:hover span:after {
   right: 0;
 
   opacity: 1;
