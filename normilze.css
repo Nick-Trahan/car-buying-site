@@ -475,6 +475,10 @@ main {
   max-height: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 #body-title {
   margin-bottom: 0;
 }

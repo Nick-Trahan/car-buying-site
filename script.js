@@ -3,12 +3,14 @@ let questionBox = document.querySelector('#question-box');
 let bodyTitle = document.querySelector('#body-title');
 let introText = document.querySelector('#intro-text');
 let btnRow = document.querySelector('#btn-row');
+let userPrefs = [];
 
 getStartedButton.addEventListener('click', askQuestions);
 
 function askQuestions() {
   getStartedButton.style.display = 'none';
   introText.style.display = 'none';
+  questionBox.style.display = 'initial' ;
   bodyTitle.innerHTML = 'What\'s Your Budget?';
   questionBox.innerHTML = 'Lots of words go here.';
   
@@ -38,14 +40,65 @@ function askQuestions() {
   let labelUsed = document.createTextNode('Shop Pre-Owned');
 
   budgetLo.addEventListener('click', loBudget);
+  budgetMid.addEventListener('click', midBudget);
+  budgetHi.addEventListener('click', hiBudget);
 
   function loBudget() {
+    userPrefs.push('lo');
+    buildConditionPage();
+  }
+
+  function midBudget() {
+    userPrefs.push('mid');
+    buildConditionPage();
+  }
+
+  function hiBudget() {
+    userPrefs.push('hi');
+    buildConditionPage();
+  }
+
+  function buildConditionPage() {
+    budgetLo.style.display = 'none';
+    budgetMid.style.display = 'none';
+    budgetHi.style.display = 'none';
+
+    let btn4 = document.createElement('button');
+    let btn5 = document.createElement('button');
+
+    btn4.appendChild(labelUsed);
+    btn5.appendChild(labelNew);
+
+    btn4.id = 'btnUsed';
+    btn5.id = 'btnNew';
+
+    if (userPrefs[0] === 'lo') {
+      bodyTitle.innerHTML = 'Below $5,000';
+      questionBox.innerHTML = 'Even more words! LO';
+      btnRow.appendChild(btn4);
+    } else if (userPrefs[0] === 'mid') {
+      bodyTitle.innerHTML = '$5,000 to $15,000';
+      questionBox.innerHTML = 'Even more words! MID';
+      btnRow.appendChild(btn4);
+      btnRow.appendChild(btn5);
+    } else if (userPrefs[0] === 'hi') {
+      bodyTitle.innerHTML = '$15,000 or More';
+      questionBox.innerHTML = 'Even more words! HI';
+      btnRow.appendChild(btn4);
+      btnRow.appendChild(btn5);
+    } else {
+      bodyTitle.innerHTML = 'Something went wrong :(';
+      questionBox.innerHTML = 'Refresh the page to try again.';
+    }
+  }
+
+  /*function loBudget() {
     budgetLo.style.display = 'none';
     budgetMid.style.display = 'none';
     budgetHi.style.display = 'none';
 
     bodyTitle.innerHTML = 'Below $5,000';
-    questionBox.innerHTML = 'Even more words!'
+    questionBox.innerHTML = 'Even more words!';
 
     let btn4 = document.createElement('button');
 
@@ -56,15 +109,13 @@ function askQuestions() {
     btnRow.appendChild(btn4);
   }
 
-  budgetMid.addEventListener('click', midBudget);
-
   function midBudget() {
     budgetLo.style.display = 'none';
     budgetMid.style.display = 'none';
     budgetHi.style.display = 'none';
 
     bodyTitle.innerHTML = '$5,000 to $15,000';
-    questionBox.innerHTML = 'Even more words!'
+    questionBox.innerHTML = 'Even more words!';
 
     let btn5 = document.createElement('button');
     let btn6 = document.createElement('button');
@@ -79,15 +130,13 @@ function askQuestions() {
     btnRow.appendChild(btn6);
   }
 
-  budgetHi.addEventListener('click', hiBudget);
-
   function hiBudget() {
     budgetLo.style.display = 'none';
     budgetMid.style.display = 'none';
     budgetHi.style.display = 'none';
 
     bodyTitle.innerHTML = '$15,000 or More';
-    questionBox.innerHTML = 'Even more words!'
+    questionBox.innerHTML = 'Even more words!';
 
     let btn7 = document.createElement('button');
     let btn8 = document.createElement('button');
@@ -100,5 +149,5 @@ function askQuestions() {
 
     btnRow.appendChild(btn7);
     btnRow.appendChild(btn8);
-  }
+  }*/
 }
