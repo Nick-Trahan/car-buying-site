@@ -23,17 +23,17 @@ function askQuestions() {
   btn2.appendChild(fiveToFifteen);
   btn3.appendChild(fifteenAndUp);
 
-  btn1.id = 'budgetLo';
-  btn2.id = 'budgetMid';
-  btn3.id = 'budgetHi';
+  btn1.id = 'btnBudgetLo';
+  btn2.id = 'btnBudgetMid';
+  btn3.id = 'btnBudgetHi';
 
   btnRow.appendChild(btn1);
   btnRow.appendChild(btn2);
   btnRow.appendChild(btn3);
 
-  let budgetLo = document.querySelector('#budgetLo');
-  let budgetMid = document.querySelector('#budgetMid');
-  let budgetHi = document.querySelector('#budgetHi');
+  let budgetLo = document.querySelector('#btnBudgetLo');
+  let budgetMid = document.querySelector('#btnBudgetMid');
+  let budgetHi = document.querySelector('#btnBudgetHi');
   let labelNew = document.createTextNode('Shop New');
   let labelUsed = document.createTextNode('Shop Pre-Owned');
 
