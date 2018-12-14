@@ -111,8 +111,11 @@ function buildEffortPage() {
   let condNew = document.querySelector('#btnNew');
 
   condUsed.style.display = 'none';
+
+  if(condNew !== null) {
   condNew.style.display = 'none';
-  
+  }
+
   let btn6 = document.createElement('button');
   let btn7 = document.createElement('button');
 
@@ -124,4 +127,10 @@ function buildEffortPage() {
 
   btn6.id = 'btnLoEff';
   btn7.id = 'btnHiEff';
+
+  btnRow.appendChild(btn6);
+  btnRow.appendChild(btn7);
+
+  bodyTitle.innerHTML = 'How much work are you willing to put into this?';
+  questionBox.innerHTML = 'Words about effort';
 }
