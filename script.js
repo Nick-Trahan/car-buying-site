@@ -59,15 +59,15 @@ function buildConditionPage() {
   let budgetMid = document.querySelector('#btnBudgetMid');
   let budgetHi = document.querySelector('#btnBudgetHi');
 
-  let labelNew = document.createTextNode('Shop New');
-  let labelUsed = document.createTextNode('Shop Pre-Owned');
-
   budgetLo.style.display = 'none';
   budgetMid.style.display = 'none';
   budgetHi.style.display = 'none';
 
   let btn4 = document.createElement('button');
   let btn5 = document.createElement('button');
+
+  let labelNew = document.createTextNode('Shop New');
+  let labelUsed = document.createTextNode('Shop Pre-Owned');
 
   btn4.appendChild(labelUsed);
   btn5.appendChild(labelNew);
@@ -90,4 +90,38 @@ function buildConditionPage() {
     btnRow.appendChild(btn4);
     btnRow.appendChild(btn5);
   }
+}
+
+btnRow.addEventListener('click', saveCondition);
+
+function saveCondition(event) {
+  let clickedElement = event.target;
+
+  if(clickedElement.id === 'btnUsed') {
+    userPrefs.push('used');
+    buildEffortPage();
+  } else if(clickedElement.id ==='btnNew') {
+    userPrefs.push('new');
+    buildEffortPage();
+  }
+}
+
+function buildEffortPage() {
+  let condUsed = document.querySelector('#btnUsed');
+  let condNew = document.querySelector('#btnNew');
+
+  condUsed.style.display = 'none';
+  condNew.style.display = 'none';
+  
+  let btn6 = document.createElement('button');
+  let btn7 = document.createElement('button');
+
+  let labelLoEff = document.createTextNode('Won\'t Travel');
+  let labelHiEff = document.createTextNode('Will Travel');
+
+  btn6.appendChild(labelLoEff);
+  btn7.appendChild(labelHiEff);
+
+  btn6.id = 'btnLoEff';
+  btn7.id = 'btnHiEff';
 }
