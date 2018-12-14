@@ -484,6 +484,13 @@ main {
   justify-content: space-around;
 }
 
+@media only screen and (max-width: 500px) {
+  #btn-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 button {
   width: 150px;
   height: 50px;
