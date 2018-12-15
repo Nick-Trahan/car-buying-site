@@ -43,13 +43,13 @@ function saveBudget(event) {
   let clickedElement = event.target;
 
   if(clickedElement.id === 'btnBudgetLo') {
-    userPrefs.push('lo');
+    userPrefs.push('lo bgt');
     buildConditionPage();
   } else if(clickedElement.id === 'btnBudgetMid') {
-    userPrefs.push('mid');
+    userPrefs.push('mid bgt');
     buildConditionPage();
   } else if(clickedElement.id === 'btnBudgetHi') {
-    userPrefs.push('hi');
+    userPrefs.push('hi bgt');
     buildConditionPage();
   }
 }
@@ -75,16 +75,16 @@ function buildConditionPage() {
   btn4.id = 'btnUsed';
   btn5.id = 'btnNew';
 
-  if (userPrefs[0] === 'lo') {
+  if(userPrefs[0] === 'lo bgt') {
     bodyTitle.innerHTML = 'Below $5,000';
     questionBox.innerHTML = 'Even more words! LO';
     btnRow.appendChild(btn4);
-  } else if (userPrefs[0] === 'mid') {
+  } else if(userPrefs[0] === 'mid bgt') {
     bodyTitle.innerHTML = '$5,000 to $15,000';
     questionBox.innerHTML = 'Even more words! MID';
     btnRow.appendChild(btn4);
     btnRow.appendChild(btn5);
-  } else if (userPrefs[0] === 'hi') {
+  } else if(userPrefs[0] === 'hi bgt') {
     bodyTitle.innerHTML = '$15,000 or More';
     questionBox.innerHTML = 'Even more words! HI';
     btnRow.appendChild(btn4);
@@ -116,6 +116,9 @@ function buildEffortPage() {
   condNew.style.display = 'none';
   }
 
+  bodyTitle.innerHTML = 'How much work are you willing to put into this?';
+  questionBox.innerHTML = 'Words about effort';
+
   let btn6 = document.createElement('button');
   let btn7 = document.createElement('button');
 
@@ -130,7 +133,18 @@ function buildEffortPage() {
 
   btnRow.appendChild(btn6);
   btnRow.appendChild(btn7);
+}
 
-  bodyTitle.innerHTML = 'How much work are you willing to put into this?';
-  questionBox.innerHTML = 'Words about effort';
+btnRow.addEventListener('click', saveEffort);
+
+function saveEffort(event) {
+  let clickedElement = event.target;
+
+  if(clickedElement.id === 'btnLoEff') {
+    userPrefs.push('lo eff');
+    console.log(userPrefs);
+  } else if(clickedElement.id === 'btnHiEff') {
+    userPrefs.push('hi eff');
+    console.log(userPrefs);
+  } 
 }
