@@ -5,9 +5,9 @@ let btnRow = document.querySelector('#btn-row');
 
 let userPrefs = [];
 
-getStartedButton.addEventListener('click', askQuestions);
+getStartedButton.addEventListener('click', askBudget);
 
-function askQuestions() {
+function askBudget() {
   clearOldButtons();
 
   bodyTitle.innerHTML = 'What\'s Your Budget?';
