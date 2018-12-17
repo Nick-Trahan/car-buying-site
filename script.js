@@ -1,7 +1,6 @@
 let getStartedButton = document.querySelector('#get-started');
-let questionBox = document.querySelector('#question-box');
 let bodyTitle = document.querySelector('#body-title');
-let introText = document.querySelector('#intro-text');
+let bodyText = document.querySelector('#intro-text');
 let btnRow = document.querySelector('#btn-row');
 
 let userPrefs = [];
@@ -9,12 +8,10 @@ let userPrefs = [];
 getStartedButton.addEventListener('click', askQuestions);
 
 function askQuestions() {
-  getStartedButton.style.display = 'none';
-  introText.style.display = 'none';
-  questionBox.style.display = 'initial' ;
+  clearOldButtons();
 
   bodyTitle.innerHTML = 'What\'s Your Budget?';
-  questionBox.innerHTML = 'Lots of words go here.';
+  bodyText.innerHTML = 'Lots of words go here.';
   
   let btn1 = document.createElement('button');
   let btn2 = document.createElement('button');
@@ -55,13 +52,7 @@ function saveBudget(event) {
 }
 
 function buildConditionPage() {
-  let budgetLo = document.querySelector('#btnBudgetLo');
-  let budgetMid = document.querySelector('#btnBudgetMid');
-  let budgetHi = document.querySelector('#btnBudgetHi');
-
-  budgetLo.style.display = 'none';
-  budgetMid.style.display = 'none';
-  budgetHi.style.display = 'none';
+  clearOldButtons();
 
   let btn4 = document.createElement('button');
   let btn5 = document.createElement('button');
@@ -77,16 +68,16 @@ function buildConditionPage() {
 
   if(userPrefs[0] === 'lo bgt') {
     bodyTitle.innerHTML = 'Below $5,000';
-    questionBox.innerHTML = 'Even more words! LO';
+    bodyText.innerHTML = 'Even more words! LO';
     btnRow.appendChild(btn4);
   } else if(userPrefs[0] === 'mid bgt') {
     bodyTitle.innerHTML = '$5,000 to $15,000';
-    questionBox.innerHTML = 'Even more words! MID';
+    bodyText.innerHTML = 'Even more words! MID';
     btnRow.appendChild(btn4);
     btnRow.appendChild(btn5);
   } else if(userPrefs[0] === 'hi bgt') {
     bodyTitle.innerHTML = '$15,000 or More';
-    questionBox.innerHTML = 'Even more words! HI';
+    bodyText.innerHTML = 'Even more words! HI';
     btnRow.appendChild(btn4);
     btnRow.appendChild(btn5);
   }
@@ -107,17 +98,10 @@ function saveCondition(event) {
 }
 
 function buildEffortPage() {
-  let condUsed = document.querySelector('#btnUsed');
-  let condNew = document.querySelector('#btnNew');
-
-  condUsed.style.display = 'none';
-
-  if(condNew !== null) {
-  condNew.style.display = 'none';
-  }
+  clearOldButtons();
 
   bodyTitle.innerHTML = 'How much work are you willing to put into this?';
-  questionBox.innerHTML = 'Words about effort';
+  bodyText.innerHTML = 'Words about effort';
 
   let btn6 = document.createElement('button');
   let btn7 = document.createElement('button');
@@ -142,9 +126,31 @@ function saveEffort(event) {
 
   if(clickedElement.id === 'btnLoEff') {
     userPrefs.push('lo eff');
-    console.log(userPrefs);
+    console.log(userPrefs); /*buildOptionsLoEff() */
   } else if(clickedElement.id === 'btnHiEff') {
     userPrefs.push('hi eff');
-    console.log(userPrefs);
+    console.log(userPrefs); /*buildOptionsHiEff() */
   } 
+}
+
+/*function buildOptionsPage() {
+  clearOldButtons();
+
+  if(userPrefs[0] === 'lo bgt' && userPrefs[2] === 'lo eff') {
+    bodyTitle.innerHTML = 'lo bgt lo eff';
+    bodyText.innerHTML = 'Words about lo bgt lo eff options';
+  } else if(userPrefs[0] === 'lo bgt' && userPrefs[2] === 'hi eff') {
+    bodyTitle.innerHTML = 'lo bgt hi eff';
+    bodyText.innerHTML = 'Words about lo hi eff options';
+  } else if(userPrefs[0] === )
+  
+}*/
+
+function clearOldButtons() {
+  let prevButtons = btnRow.querySelectorAll('button');
+
+  for (let i = 0; i < prevButtons.length; i++) {
+    const element = prevButtons[i];
+    element.classList.add('hidden');
+  }
 }
