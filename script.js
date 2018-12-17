@@ -5,9 +5,9 @@ let btnRow = document.querySelector('#btn-row');
 
 let userPrefs = [];
 
-getStartedButton.addEventListener('click', askBudget);
+getStartedButton.addEventListener('click', buildBudgetPage);
 
-function askBudget() {
+function buildBudgetPage() {
   clearOldButtons();
 
   bodyTitle.innerHTML = 'What\'s Your Budget?';
@@ -127,23 +127,20 @@ function saveCondition(event) {
   if(clickedElement.id === 'btnUsed') {
     userPrefs.push('used');
     console.log(userPrefs);
+    //buildUsedOptionsPage();
   } else if(clickedElement.id ==='btnNew') {
     userPrefs.push('new');
     console.log(userPrefs);
+    //buildNewOptionsPage();
   }
 }
 
-/*function buildOptionsPage() {
-  clearOldButtons();
+/**function buildUsedOptionsPage() {
+ * clearOldButtons();
+}*/
 
-  if(userPrefs[0] === 'lo bgt' && userPrefs[2] === 'lo eff') {
-    bodyTitle.innerHTML = 'lo bgt lo eff';
-    bodyText.innerHTML = 'Words about lo bgt lo eff options';
-  } else if(userPrefs[0] === 'lo bgt' && userPrefs[2] === 'hi eff') {
-    bodyTitle.innerHTML = 'lo bgt hi eff';
-    bodyText.innerHTML = 'Words about lo hi eff options';
-  } else if(userPrefs[0] === )
-  
+/**function buildNewOptionsPage() {
+ * clearOldButtons();
 }*/
 
 function clearOldButtons() {
