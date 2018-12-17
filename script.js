@@ -93,8 +93,8 @@ function buildConditionPage() {
   let btn4 = document.createElement('button');
   let btn5 = document.createElement('button');
 
-  let labelNew = document.createTextNode('Shop New');
   let labelUsed = document.createTextNode('Shop Pre-Owned');
+  let labelNew = document.createTextNode('Shop New');
 
   btn4.appendChild(labelUsed);
   btn5.appendChild(labelNew);
@@ -128,7 +128,7 @@ function saveCondition(event) {
     userPrefs.push('used');
     console.log(userPrefs);
     //buildUsedOptionsPage();
-  } else if(clickedElement.id ==='btnNew') {
+  } else if(clickedElement.id === 'btnNew') {
     userPrefs.push('new');
     console.log(userPrefs);
     //buildNewOptionsPage();
