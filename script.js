@@ -28,7 +28,7 @@ function askBudget() {
   btn1.id = 'btnBudgetLo';
   btn2.id = 'btnBudgetMid';
   btn3.id = 'btnBudgetHi';
-
+  
   btnRow.appendChild(btn1);
   btnRow.appendChild(btn2);
   btnRow.appendChild(btn3);
@@ -38,17 +38,53 @@ btnRow.addEventListener('click', saveBudget);
 
 function saveBudget(event) {
   let clickedElement = event.target;
-
+  
   if(clickedElement.id === 'btnBudgetLo') {
     userPrefs.push('lo bgt');
-    buildConditionPage();
+    buildEffortPage();
   } else if(clickedElement.id === 'btnBudgetMid') {
     userPrefs.push('mid bgt');
-    buildConditionPage();
+    buildEffortPage();
   } else if(clickedElement.id === 'btnBudgetHi') {
     userPrefs.push('hi bgt');
-    buildConditionPage();
+    buildEffortPage();
   }
+}
+
+function buildEffortPage() {
+  clearOldButtons();
+
+  bodyTitle.innerHTML = 'How much work are you willing to put into this?';
+  bodyText.innerHTML = 'Words about effort';
+
+  let btn6 = document.createElement('button');
+  let btn7 = document.createElement('button');
+
+  let labelLoEff = document.createTextNode('Won\'t Travel');
+  let labelHiEff = document.createTextNode('Will Travel');
+
+  btn6.appendChild(labelLoEff);
+  btn7.appendChild(labelHiEff);
+
+  btn6.id = 'btnLoEff';
+  btn7.id = 'btnHiEff';
+
+  btnRow.appendChild(btn6);
+  btnRow.appendChild(btn7);
+}
+
+btnRow.addEventListener('click', saveEffort);
+
+function saveEffort(event) {
+  let clickedElement = event.target;
+
+  if(clickedElement.id === 'btnLoEff') {
+    userPrefs.push('lo eff');
+    buildConditionPage();
+  } else if(clickedElement.id === 'btnHiEff') {
+    userPrefs.push('hi eff');
+    buildConditionPage();
+  } 
 }
 
 function buildConditionPage() {
@@ -90,47 +126,11 @@ function saveCondition(event) {
 
   if(clickedElement.id === 'btnUsed') {
     userPrefs.push('used');
-    buildEffortPage();
+    console.log(userPrefs);
   } else if(clickedElement.id ==='btnNew') {
     userPrefs.push('new');
-    buildEffortPage();
+    console.log(userPrefs);
   }
-}
-
-function buildEffortPage() {
-  clearOldButtons();
-
-  bodyTitle.innerHTML = 'How much work are you willing to put into this?';
-  bodyText.innerHTML = 'Words about effort';
-
-  let btn6 = document.createElement('button');
-  let btn7 = document.createElement('button');
-
-  let labelLoEff = document.createTextNode('Won\'t Travel');
-  let labelHiEff = document.createTextNode('Will Travel');
-
-  btn6.appendChild(labelLoEff);
-  btn7.appendChild(labelHiEff);
-
-  btn6.id = 'btnLoEff';
-  btn7.id = 'btnHiEff';
-
-  btnRow.appendChild(btn6);
-  btnRow.appendChild(btn7);
-}
-
-btnRow.addEventListener('click', saveEffort);
-
-function saveEffort(event) {
-  let clickedElement = event.target;
-
-  if(clickedElement.id === 'btnLoEff') {
-    userPrefs.push('lo eff');
-    console.log(userPrefs); /*buildOptionsLoEff() */
-  } else if(clickedElement.id === 'btnHiEff') {
-    userPrefs.push('hi eff');
-    console.log(userPrefs); /*buildOptionsHiEff() */
-  } 
 }
 
 /*function buildOptionsPage() {
