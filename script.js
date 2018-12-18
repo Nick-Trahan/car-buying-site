@@ -57,20 +57,20 @@ function buildEffortPage() {
   bodyTitle.innerHTML = 'How much work are you willing to put into this?';
   bodyText.innerHTML = 'Words about effort';
 
-  let btn6 = document.createElement('button');
-  let btn7 = document.createElement('button');
+  let btn4 = document.createElement('button');
+  let btn5 = document.createElement('button');
 
   let labelLoEff = document.createTextNode('Won\'t Travel');
   let labelHiEff = document.createTextNode('Will Travel');
 
-  btn6.appendChild(labelLoEff);
-  btn7.appendChild(labelHiEff);
+  btn4.appendChild(labelLoEff);
+  btn5.appendChild(labelHiEff);
 
-  btn6.id = 'btnLoEff';
-  btn7.id = 'btnHiEff';
+  btn4.id = 'btnLoEff';
+  btn5.id = 'btnHiEff';
 
-  btnRow.appendChild(btn6);
-  btnRow.appendChild(btn7);
+  btnRow.appendChild(btn4);
+  btnRow.appendChild(btn5);
 }
 
 btnRow.addEventListener('click', saveEffort);
@@ -90,32 +90,32 @@ function saveEffort(event) {
 function buildConditionPage() {
   clearOldButtons();
 
-  let btn4 = document.createElement('button');
-  let btn5 = document.createElement('button');
+  let btn6 = document.createElement('button');
+  let btn7 = document.createElement('button');
 
   let labelUsed = document.createTextNode('Shop Pre-Owned');
   let labelNew = document.createTextNode('Shop New');
 
-  btn4.appendChild(labelUsed);
-  btn5.appendChild(labelNew);
+  btn6.appendChild(labelUsed);
+  btn7.appendChild(labelNew);
 
-  btn4.id = 'btnUsed';
-  btn5.id = 'btnNew';
+  btn6.id = 'btnUsed';
+  btn7.id = 'btnNew';
 
   if(userPrefs[0] === 'lo bgt') {
     bodyTitle.innerHTML = 'Below $5,000';
     bodyText.innerHTML = 'Even more words! LO';
-    btnRow.appendChild(btn4);
+    btnRow.appendChild(btn6);
   } else if(userPrefs[0] === 'mid bgt') {
     bodyTitle.innerHTML = '$5,000 to $15,000';
     bodyText.innerHTML = 'Even more words! MID';
-    btnRow.appendChild(btn4);
-    btnRow.appendChild(btn5);
+    btnRow.appendChild(btn6);
+    btnRow.appendChild(btn7);
   } else if(userPrefs[0] === 'hi bgt') {
     bodyTitle.innerHTML = '$15,000 or More';
     bodyText.innerHTML = 'Even more words! HI';
-    btnRow.appendChild(btn4);
-    btnRow.appendChild(btn5);
+    btnRow.appendChild(btn6);
+    btnRow.appendChild(btn7);
   }
 }
 
@@ -126,8 +126,7 @@ function saveCondition(event) {
 
   if(clickedElement.id === 'btnUsed') {
     userPrefs.push('used');
-    console.log(userPrefs);
-    //buildUsedOptionsPage();
+    buildUsedOptionsPage();
   } else if(clickedElement.id === 'btnNew') {
     userPrefs.push('new');
     console.log(userPrefs);
@@ -135,9 +134,48 @@ function saveCondition(event) {
   }
 }
 
-/**function buildUsedOptionsPage() {
- * clearOldButtons();
-}*/
+function buildUsedOptionsPage() {
+  clearOldButtons();
+
+  bodyTitle.innerHTML = 'Used car buying options';
+  bodyText.innerHTML = 'Words used car shopping';
+
+  let btn8 = document.createElement('button');
+  let btn9 = document.createElement('button');
+  let btn10 = document.createElement('button');
+  let btn11 = document.createElement('button');
+
+  let certifiedPreOwned = document.createTextNode('Certified Pre-Owned');
+  let dealerLot = document.createTextNode('Dealer Lot');
+  let bhphLot = document.createTextNode('Buy Here; Pay Here Lot');
+  let privateSale = document.createTextNode('Private Sale');
+
+  btn8.appendChild(certifiedPreOwned);
+  btn9.appendChild(dealerLot);
+  btn10.appendChild(bhphLot);
+  btn11.appendChild(privateSale);
+
+  btn8.id = 'btnCpo';
+  btn9.id = 'btnDealerLot';
+  btn10.id = 'btnBhphLot';
+  btn11.id = 'btnPrivateSale';
+
+  btnRow.appendChild(btn8);
+  btnRow.appendChild(btn9);
+  btnRow.appendChild(btn10);
+  btnRow.appendChild(btn11);
+
+  if (userPrefs[1] === 'hi eff') {
+    let btn12 = document.createElement('button');
+    let theInternet = document.createTextNode('The Internet');
+
+    btn12.appendChild(theInternet);
+
+    btn12.id = 'btnInternet';
+
+    btnRow.appendChild(btn12);
+  }
+}
 
 /**function buildNewOptionsPage() {
  * clearOldButtons();
