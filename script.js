@@ -194,7 +194,7 @@ function buildNewOptionsPage() {
 
   btn13.appendChild(newCarDealer);
 
-  btn13.id = 'btnNewLot'
+  btn13.id = 'btnNewLot';
 
   btnRow.appendChild(btn13);
 
