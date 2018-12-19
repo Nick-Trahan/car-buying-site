@@ -42,9 +42,11 @@ function saveBudget(event) {
   if(clickedElement.id === 'btnBudgetLo') {
     userPrefs.push('lo bgt');
     buildEffortPage();
+
   } else if(clickedElement.id === 'btnBudgetMid') {
     userPrefs.push('mid bgt');
     buildEffortPage();
+
   } else if(clickedElement.id === 'btnBudgetHi') {
     userPrefs.push('hi bgt');
     buildEffortPage();
@@ -81,6 +83,7 @@ function saveEffort(event) {
   if(clickedElement.id === 'btnLoEff') {
     userPrefs.push('lo eff');
     buildConditionPage();
+
   } else if(clickedElement.id === 'btnHiEff') {
     userPrefs.push('hi eff');
     buildConditionPage();
@@ -106,11 +109,13 @@ function buildConditionPage() {
     bodyTitle.innerHTML = 'Below $5,000';
     bodyText.innerHTML = 'Even more words! LO';
     btnRow.appendChild(btn6);
+
   } else if(userPrefs[0] === 'mid bgt') {
     bodyTitle.innerHTML = '$5,000 to $15,000';
     bodyText.innerHTML = 'Even more words! MID';
     btnRow.appendChild(btn6);
     btnRow.appendChild(btn7);
+
   } else if(userPrefs[0] === 'hi bgt') {
     bodyTitle.innerHTML = '$15,000 or More';
     bodyText.innerHTML = 'Even more words! HI';
@@ -127,10 +132,10 @@ function saveCondition(event) {
   if(clickedElement.id === 'btnUsed') {
     userPrefs.push('used');
     buildUsedOptionsPage();
+
   } else if(clickedElement.id === 'btnNew') {
     userPrefs.push('new');
-    console.log(userPrefs);
-    //buildNewOptionsPage();
+    buildNewOptionsPage();
   }
 }
 
@@ -146,17 +151,17 @@ function buildUsedOptionsPage() {
   let btn11 = document.createElement('button');
 
   let certifiedPreOwned = document.createTextNode('Certified Pre-Owned');
-  let dealerLot = document.createTextNode('Dealer Lot');
+  let usedLot = document.createTextNode('Used Dealer Lot');
   let bhphLot = document.createTextNode('Buy Here; Pay Here Lot');
   let privateSale = document.createTextNode('Private Sale');
 
   btn8.appendChild(certifiedPreOwned);
-  btn9.appendChild(dealerLot);
+  btn9.appendChild(usedLot);
   btn10.appendChild(bhphLot);
   btn11.appendChild(privateSale);
 
   btn8.id = 'btnCpo';
-  btn9.id = 'btnDealerLot';
+  btn9.id = 'btnUsedLot';
   btn10.id = 'btnBhphLot';
   btn11.id = 'btnPrivateSale';
 
@@ -167,25 +172,50 @@ function buildUsedOptionsPage() {
 
   if (userPrefs[1] === 'hi eff') {
     let btn12 = document.createElement('button');
-    let theInternet = document.createTextNode('The Internet');
+    let theInternetUsed = document.createTextNode('The Internet');
 
-    btn12.appendChild(theInternet);
+    btn12.appendChild(theInternetUsed);
 
-    btn12.id = 'btnInternet';
+    btn12.id = 'btnInternetUsed';
 
     btnRow.appendChild(btn12);
   }
 }
 
-/**function buildNewOptionsPage() {
- * clearOldButtons();
-}*/
+function buildNewOptionsPage() {
+  clearOldButtons();
+
+  bodyTitle.innerHTML = 'New car buying options';
+  bodyText.innerHTML = 'Words new car shopping';
+
+  let btn13 = document.createElement('button');
+
+  let newCarDealer = document.createTextNode('New Car Dealership');
+
+  btn13.appendChild(newCarDealer);
+
+  btn13.id = 'btnNewLot'
+
+  btnRow.appendChild(btn13);
+
+  if (userPrefs[1] === 'hi eff') {
+    let btn14 = document.createElement('button');
+    let theInternetNew = document.createTextNode('The Internet');
+
+    btn14.appendChild(theInternetNew);
+
+    btn14.id = 'btnInternetNew';
+
+    btnRow.appendChild(btn14);
+  }
+}
 
 function clearOldButtons() {
   let prevButtons = btnRow.querySelectorAll('button');
 
   for (let i = 0; i < prevButtons.length; i++) {
     const element = prevButtons[i];
+
     element.classList.add('hidden');
   }
 }
