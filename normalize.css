@@ -575,11 +575,12 @@ button:active {
 }
 
 #back-reset-row {
-  /* display: flex; */
   justify-content: center;
   margin-bottom: 1.5em;
 }
 
 .btn-txt {
   margin-top: 0;
+
+  cursor: pointer;
 }
