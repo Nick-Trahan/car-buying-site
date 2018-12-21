@@ -3,6 +3,8 @@ let bodyTitle = document.querySelector('#body-title');
 let bodyText = document.querySelector('#intro-text');
 let btnRow = document.querySelector('#btn-row');
 let bkRstBtnRow = document.querySelector('#back-reset-row');
+let resetBtn = document.querySelector('#reset-btn');
+let backBtn = document.querySelector('#back-btn');
 
 let userPrefs = [];
 
@@ -221,4 +223,18 @@ function clearOldButtons() {
 
     element.classList.add('hidden');
   }
+}
+
+resetBtn.addEventListener('click', resetPage);
+
+function resetPage() {
+  buildBudgetPage();
+  userPrefs = [];
+  console.log(userPrefs);
+}
+
+backBtn.addEventListener('click', goBack);
+
+function goBack() {
+  console.log('Back Click!');
 }
