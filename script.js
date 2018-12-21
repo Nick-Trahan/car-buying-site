@@ -236,5 +236,31 @@ function resetPage() {
 backBtn.addEventListener('click', goBack);
 
 function goBack() {
-  console.log('Back Click!');
+  let lastPage = userPrefs[userPrefs.length - 1]; 
+
+  switch (lastPage) {
+    case 'lo bgt':
+    case 'mid bgt':
+    case 'hi bgt':
+      buildBudgetPage();
+      userPrefs.pop();
+      break;
+
+    case 'lo eff':
+    case 'hi eff':
+      buildEffortPage();
+      userPrefs.pop();
+      break;
+
+    case 'used':
+    case 'new':
+      buildConditionPage();
+      userPrefs.pop();
+      break;
+  
+    default:
+      resetPage();
+      console.log('It broke :(');
+      break;
+  }
 }
