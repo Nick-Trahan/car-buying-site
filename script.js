@@ -230,7 +230,6 @@ resetBtn.addEventListener('click', resetPage);
 function resetPage() {
   buildBudgetPage();
   userPrefs = [];
-  console.log(userPrefs);
 }
 
 backBtn.addEventListener('click', goBack);
