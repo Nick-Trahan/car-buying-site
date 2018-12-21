@@ -486,6 +486,10 @@ main {
   margin-bottom: 0;
 }
 
+#intro-text {
+  margin-bottom: 1.5em;
+}
+
 #btn-row {
   display: flex;
   justify-content: space-around;
@@ -502,7 +506,7 @@ button {
   width: 150px;
   height: 50px;
 
-  margin-bottom: 3em;
+  margin-bottom: 1.5em;
 
   vertical-align: middle;
 
@@ -568,4 +572,15 @@ button:active {
   right: 0;
 
   opacity: 1;
+}
+
+#back-reset-row {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 1.5em;
+}
+
+.btn-txt {
+  margin-top: 0;
 }
