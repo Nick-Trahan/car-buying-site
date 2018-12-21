@@ -2,6 +2,7 @@ let getStartedButton = document.querySelector('#get-started');
 let bodyTitle = document.querySelector('#body-title');
 let bodyText = document.querySelector('#intro-text');
 let btnRow = document.querySelector('#btn-row');
+let bkRstBtnRow = document.querySelector('#back-reset-row');
 
 let userPrefs = [];
 
@@ -9,6 +10,8 @@ getStartedButton.addEventListener('click', buildBudgetPage);
 
 function buildBudgetPage() {
   clearOldButtons();
+
+  bkRstBtnRow.style.display = 'flex';
 
   bodyTitle.innerHTML = 'What\'s Your Budget?';
   bodyText.innerHTML = 'Lots of words go here.';
