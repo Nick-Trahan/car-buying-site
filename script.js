@@ -2,7 +2,6 @@ let getStartedButton = document.querySelector('#get-started');
 let bodyTitle = document.querySelector('#body-title');
 let bodyText = document.querySelector('#intro-text');
 let btnRow = document.querySelector('#btn-row');
-let bkRstBtnRow = document.querySelector('#back-reset-row');
 let resetBtn = document.querySelector('#reset-btn');
 let backBtn = document.querySelector('#back-btn');
 
@@ -12,6 +11,8 @@ getStartedButton.addEventListener('click', buildBudgetPage);
 
 function buildBudgetPage() {
   clearOldButtons();
+  
+  let bkRstBtnRow = document.querySelector('#back-reset-row');
 
   bkRstBtnRow.style.display = 'flex';
 
