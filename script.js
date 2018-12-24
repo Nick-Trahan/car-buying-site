@@ -290,6 +290,21 @@ function goBack() {
       buildConditionPage();
       userPrefs.pop();
       break;
+
+    case 'cpo':
+    case 'used lot':
+    case 'bhph lot':
+    case 'private sale':
+    case 'internet used':
+      buildUsedOptionsPage();
+      userPrefs.pop();
+      break;
+
+    case 'new lot':
+    case 'internet new':
+      buildNewOptionsPage();
+      userPrefs.pop();
+      break;
   
     default:
       resetPage();
