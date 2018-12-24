@@ -249,6 +249,55 @@ function saveBuyingOption(event) {
   }
 }
 
+function buildCpoPage() {
+  clearOldButtons();
+
+  bodyTitle.innerHTML = 'Shopping for Certified Pre-Owned';
+  bodyText.innerHTML = 'Words about shopping for Certified Pre-Owned cars and trucks.';
+}
+
+function buildUsedLotPage() {
+  clearOldButtons();
+
+  bodyTitle.innerHTML = 'Shopping at Used Car Dealer Lots';
+  bodyText.innerHTML = 'Words about shopping at used car dealer lots.';
+}
+
+function buildBhphLotPage() {
+  clearOldButtons();
+
+  bodyTitle.innerHTML = 'Shopping at Buy-Here, Pay-Here Lots';
+  bodyText.innerHTML ='Words about shopping at BHPH lots.';
+}
+
+function buildPrivateSalePage() {
+  clearOldButtons();
+
+  bodyTitle.innerHTML = 'The Private Sale Buying Experience';
+  bodyText.innerHTML = 'Words about buying a car or truck from an individual.';
+}
+
+function buildInternetUsedPage() {
+  clearOldButtons();
+
+  bodyTitle.innerHTML = 'Shopping for a Used Car Online';
+  bodyText.innerHTML = 'Words about buying a used car over The Internet.';
+}
+
+function buildNewLotPage() {
+  clearOldButtons();
+
+  bodyTitle.innerHTML = 'Shopping at a New Car Dealership';
+  bodyText.innerHTML = 'Words about the new car buying experience.';
+}
+
+function buildInternetNewPage() {
+  clearOldButtons();
+
+  bodyTitle.innerHTML = 'Shopping for a New Car Online';
+  bodyText.innerHTML = 'Words about buying a new car over The Internet.'
+}
+
 function clearOldButtons() {
   let prevButtons = btnRow.querySelectorAll('button');
 
