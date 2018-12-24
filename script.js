@@ -267,7 +267,7 @@ function buildBhphLotPage() {
   clearOldButtons();
 
   bodyTitle.innerHTML = 'Shopping at Buy-Here, Pay-Here Lots';
-  bodyText.innerHTML ='Words about shopping at BHPH lots.';
+  bodyText.innerHTML = 'Words about shopping at BHPH lots.';
 }
 
 function buildPrivateSalePage() {
@@ -295,7 +295,7 @@ function buildInternetNewPage() {
   clearOldButtons();
 
   bodyTitle.innerHTML = 'Shopping for a New Car Online';
-  bodyText.innerHTML = 'Words about buying a new car over The Internet.'
+  bodyText.innerHTML = 'Words about buying a new car over The Internet.';
 }
 
 function clearOldButtons() {
