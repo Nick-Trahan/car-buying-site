@@ -219,33 +219,42 @@ btnRow.addEventListener('click', saveBuyingOption);
 function saveBuyingOption(event) {
   let clickedElement = event.target;
 
-  if(clickedElement.id === 'btnCpo') {
-    userPrefs.push('cpo');
-    buildRequestedPage();
+  switch(clickedElement.id) {
 
-  } else if(clickedElement.id === 'btnUsedLot') {
-    userPrefs.push('used lot');
-    buildRequestedPage();
+    case 'btnCpo':
+      userPrefs.push('cpo');
+      buildRequestedPage();
+      break;
 
-  } else if(clickedElement.id === 'btnBhphLot') {
-    userPrefs.push('bhph lot');
-    buildRequestedPage();
+    case 'btnUsedLot':
+      userPrefs.push('used lot');
+      buildRequestedPage();
+      break;
 
-  } else if(clickedElement.id === 'btnPrivateSale') {
-    userPrefs.push('private sale');
-    buildRequestedPage();
+    case 'btnBhphLot':
+      userPrefs.push('bhph lot');
+      buildRequestedPage();
+      break;
+
+    case 'btnPrivateSale':
+      userPrefs.push('private sale');
+      buildRequestedPage();
+      break;
     
-  } else if(clickedElement.id === 'btnInternetUsed') {
-    userPrefs.push('internet used');
-    buildRequestedPage();
+    case 'btnInternetUsed':
+      userPrefs.push('internet used');
+      buildRequestedPage();
+      break;
 
-  } else if(clickedElement.id === 'btnNewLot') {
-    userPrefs.push('new lot');
-    buildRequestedPage();
+    case 'btnNewLot':
+      userPrefs.push('new lot');
+      buildRequestedPage();
+      break;
     
-  } else if(clickedElement.id === 'btnInternetNew') {
-    userPrefs.push('internet new');
-    buildRequestedPage();
+    case 'btnInternetNew':
+      userPrefs.push('internet new');
+      buildRequestedPage();
+      break;
   }
 }
 
