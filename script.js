@@ -115,7 +115,7 @@ function buildConditionPage() {
     btnRow.appendChild(btn6);
 
   } else if(userPrefs[0] === 'mid bgt') {
-    bodyTitle.innerHTML = '$5,000 to $15,000';
+    bodyTitle.innerHTML = '$5,000 to $14,999';
     bodyText.innerHTML = 'Even more words! MID';
     btnRow.appendChild(btn6);
     btnRow.appendChild(btn7);
@@ -174,7 +174,7 @@ function buildUsedOptionsPage() {
   btnRow.appendChild(btn10);
   btnRow.appendChild(btn11);
 
-  if (userPrefs[1] === 'hi eff') {
+  if(userPrefs[1] === 'hi eff') {
     let btn12 = document.createElement('button');
     let theInternetUsed = document.createTextNode('The Internet');
 
@@ -202,7 +202,7 @@ function buildNewOptionsPage() {
 
   btnRow.appendChild(btn13);
 
-  if (userPrefs[1] === 'hi eff') {
+  if(userPrefs[1] === 'hi eff') {
     let btn14 = document.createElement('button');
     let theInternetNew = document.createTextNode('The Internet');
 
@@ -214,10 +214,45 @@ function buildNewOptionsPage() {
   }
 }
 
+btnRow.addEventListener('click', saveBuyingOption);
+
+function saveBuyingOption(event) {
+  let clickedElement = event.target;
+
+  if(clickedElement.id === 'btnCpo') {
+    console.log('CPO');
+    userPrefs.push('cpo');
+
+  } else if(clickedElement.id === 'btnUsedLot') {
+    console.log('btnUsedLot');
+    userPrefs.push('used lot');
+
+  } else if(clickedElement.id === 'btnBhphLot') {
+    console.log('btnBhphLot');
+    userPrefs.push('bhph lot');
+
+  } else if(clickedElement.id === 'btnPrivateSale') {
+    console.log('btnPrivateSale');
+    userPrefs.push('private sale');
+    
+  } else if(clickedElement.id === 'btnInternetUsed') {
+    console.log('btnInternetUsed');
+    userPrefs.push('internet used');
+
+  } else if(clickedElement.id === 'btnNewLot') {
+    console.log('btnNewLot');
+    userPrefs.push('new lot');
+    
+  } else if(clickedElement.id === 'btnInternetNew') {
+    console.log('btnInternetNew');
+    userPrefs.push('internet new');
+  }
+}
+
 function clearOldButtons() {
   let prevButtons = btnRow.querySelectorAll('button');
 
-  for (let i = 0; i < prevButtons.length; i++) {
+  for(let i = 0; i < prevButtons.length; i++) {
     const element = prevButtons[i];
 
     element.classList.add('hidden');
