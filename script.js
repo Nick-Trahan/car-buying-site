@@ -221,81 +221,75 @@ function saveBuyingOption(event) {
 
   if(clickedElement.id === 'btnCpo') {
     userPrefs.push('cpo');
-    buildCpoPage();
+    buildRequestedPage();
 
   } else if(clickedElement.id === 'btnUsedLot') {
     userPrefs.push('used lot');
-    buildUsedLotPage();
+    buildRequestedPage();
 
   } else if(clickedElement.id === 'btnBhphLot') {
     userPrefs.push('bhph lot');
-    buildBhphLotPage();
+    buildRequestedPage();
 
   } else if(clickedElement.id === 'btnPrivateSale') {
     userPrefs.push('private sale');
-    buildPrivateSalePage();
+    buildRequestedPage();
     
   } else if(clickedElement.id === 'btnInternetUsed') {
     userPrefs.push('internet used');
-    buildInternetUsedPage();
+    buildRequestedPage();
 
   } else if(clickedElement.id === 'btnNewLot') {
     userPrefs.push('new lot');
-    buildNewLotPage();
+    buildRequestedPage();
     
   } else if(clickedElement.id === 'btnInternetNew') {
     userPrefs.push('internet new');
-    buildInternetNewPage();
+    buildRequestedPage();
   }
 }
 
-function buildCpoPage() {
+function buildRequestedPage() {
   clearOldButtons();
 
-  bodyTitle.innerHTML = 'Shopping for Certified Pre-Owned';
-  bodyText.innerHTML = 'Words about shopping for Certified Pre-Owned cars and trucks.';
-}
+  let requestedPage = userPrefs[userPrefs.length - 1];
 
-function buildUsedLotPage() {
-  clearOldButtons();
+  switch(requestedPage) {
+    case 'cpo':
+      bodyTitle.innerHTML = 'Shopping for Certified Pre-Owned';
+      bodyText.innerHTML = 'Words about shopping for Certified Pre-Owned cars and trucks.';
+      break;
 
-  bodyTitle.innerHTML = 'Shopping at Used Car Dealer Lots';
-  bodyText.innerHTML = 'Words about shopping at used car dealer lots.';
-}
+    case 'used lot':  
+      bodyTitle.innerHTML = 'Shopping at Used Car Dealer Lots';
+      bodyText.innerHTML = 'Words about shopping at used car dealer lots.';
+      break;
 
-function buildBhphLotPage() {
-  clearOldButtons();
+    case 'bhph lot':
+      bodyTitle.innerHTML = 'Shopping at Buy-Here, Pay-Here Lots';
+      bodyText.innerHTML = 'Words about shopping at BHPH lots.';
+      break;
+    
+    case 'private sale':
+      bodyTitle.innerHTML = 'The Private Sale Buying Experience';
+      bodyText.innerHTML = 'Words about buying a car or truck from an individual.';
+      break;
 
-  bodyTitle.innerHTML = 'Shopping at Buy-Here, Pay-Here Lots';
-  bodyText.innerHTML = 'Words about shopping at BHPH lots.';
-}
+    case 'internet used':
+      bodyTitle.innerHTML = 'Shopping for a Used Car Online';
+      bodyText.innerHTML = 'Words about buying a used car over The Internet.';
+      break;
 
-function buildPrivateSalePage() {
-  clearOldButtons();
+    case 'new lot':
+      bodyTitle.innerHTML = 'Shopping at a New Car Dealership';
+      bodyText.innerHTML = 'Words about the new car buying experience.';
+      break;
 
-  bodyTitle.innerHTML = 'The Private Sale Buying Experience';
-  bodyText.innerHTML = 'Words about buying a car or truck from an individual.';
-}
-
-function buildInternetUsedPage() {
-  clearOldButtons();
-
-  bodyTitle.innerHTML = 'Shopping for a Used Car Online';
-  bodyText.innerHTML = 'Words about buying a used car over The Internet.';
-}
-
-function buildNewLotPage() {
-  clearOldButtons();
-
-  bodyTitle.innerHTML = 'Shopping at a New Car Dealership';
-  bodyText.innerHTML = 'Words about the new car buying experience.';
-}
-
-function buildInternetNewPage() {
-  clearOldButtons();
-
-  bodyTitle.innerHTML = 'Shopping for a New Car Online';
-  bodyText.innerHTML = 'Words about buying a new car over The Internet.';
+    case 'internet new':
+      bodyTitle.innerHTML = 'Shopping for a New Car Online';
+      bodyText.innerHTML = 'Words about buying a new car over The Internet.';
+      break;
+  }
 }
 
 function clearOldButtons() {
