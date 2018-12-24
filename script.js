@@ -220,32 +220,32 @@ function saveBuyingOption(event) {
   let clickedElement = event.target;
 
   if(clickedElement.id === 'btnCpo') {
-    console.log('CPO');
     userPrefs.push('cpo');
+    buildCpoPage();
 
   } else if(clickedElement.id === 'btnUsedLot') {
-    console.log('btnUsedLot');
     userPrefs.push('used lot');
+    buildUsedLotPage();
 
   } else if(clickedElement.id === 'btnBhphLot') {
-    console.log('btnBhphLot');
     userPrefs.push('bhph lot');
+    buildBhphLotPage();
 
   } else if(clickedElement.id === 'btnPrivateSale') {
-    console.log('btnPrivateSale');
     userPrefs.push('private sale');
+    buildPrivateSalePage();
     
   } else if(clickedElement.id === 'btnInternetUsed') {
-    console.log('btnInternetUsed');
     userPrefs.push('internet used');
+    buildInternetUsedPage();
 
   } else if(clickedElement.id === 'btnNewLot') {
-    console.log('btnNewLot');
     userPrefs.push('new lot');
+    buildNewLotPage();
     
   } else if(clickedElement.id === 'btnInternetNew') {
-    console.log('btnInternetNew');
     userPrefs.push('internet new');
+    buildInternetNewPage();
   }
 }
 
