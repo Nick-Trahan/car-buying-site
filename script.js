@@ -43,17 +43,21 @@ btnRow.addEventListener('click', saveBudget);
 function saveBudget(event) {
   let clickedElement = event.target;
   
-  if(clickedElement.id === 'btnBudgetLo') {
-    userPrefs.push('lo bgt');
-    buildEffortPage();
+  switch(clickedElement.id) {
+    case 'btnBudgetLo':
+      userPrefs.push('lo bgt');
+      buildEffortPage();
+      break;
 
-  } else if(clickedElement.id === 'btnBudgetMid') {
-    userPrefs.push('mid bgt');
-    buildEffortPage();
+    case 'btnBudgetMid':
+      userPrefs.push('mid bgt');
+      buildEffortPage();
+      break;
 
-  } else if(clickedElement.id === 'btnBudgetHi') {
-    userPrefs.push('hi bgt');
-    buildEffortPage();
+    case 'btnBudgetHi':
+      userPrefs.push('hi bgt');
+      buildEffortPage();
+      break;
   }
 }
 
@@ -84,14 +88,17 @@ btnRow.addEventListener('click', saveEffort);
 function saveEffort(event) {
   let clickedElement = event.target;
 
-  if(clickedElement.id === 'btnLoEff') {
-    userPrefs.push('lo eff');
-    buildConditionPage();
+  switch(clickedElement.id) {
+    case 'btnLoEff':
+      userPrefs.push('lo eff');
+      buildConditionPage();
+      break;
 
-  } else if(clickedElement.id === 'btnHiEff') {
-    userPrefs.push('hi eff');
-    buildConditionPage();
-  } 
+    case 'btnHiEff':
+      userPrefs.push('hi eff');
+      buildConditionPage();
+      break;
+ }
 }
 
 function buildConditionPage() {
@@ -109,22 +116,26 @@ function buildConditionPage() {
   btn6.id = 'btnUsed';
   btn7.id = 'btnNew';
 
-  if(userPrefs[0] === 'lo bgt') {
-    bodyTitle.innerHTML = 'Below $5,000';
-    bodyText.innerHTML = 'Even more words! LO';
-    btnRow.appendChild(btn6);
+  switch(userPrefs[0]) { 
+    case 'lo bgt':
+      bodyTitle.innerHTML = 'Below $5,000';
+      bodyText.innerHTML = 'Even more words! LO';
+      btnRow.appendChild(btn6);
+      break;
 
-  } else if(userPrefs[0] === 'mid bgt') {
-    bodyTitle.innerHTML = '$5,000 to $14,999';
-    bodyText.innerHTML = 'Even more words! MID';
-    btnRow.appendChild(btn6);
-    btnRow.appendChild(btn7);
+    case 'mid bgt':
+      bodyTitle.innerHTML = '$5,000 to $14,999';
+      bodyText.innerHTML = 'Even more words! MID';
+      btnRow.appendChild(btn6);
+      btnRow.appendChild(btn7);
+      break;
 
-  } else if(userPrefs[0] === 'hi bgt') {
-    bodyTitle.innerHTML = '$15,000 or More';
-    bodyText.innerHTML = 'Even more words! HI';
-    btnRow.appendChild(btn6);
-    btnRow.appendChild(btn7);
+    case 'hi bgt':
+      bodyTitle.innerHTML = '$15,000 or More';
+      bodyText.innerHTML = 'Even more words! HI';
+      btnRow.appendChild(btn6);
+      btnRow.appendChild(btn7);
+      break;
   }
 }
 
@@ -133,13 +144,16 @@ btnRow.addEventListener('click', saveCondition);
 function saveCondition(event) {
   let clickedElement = event.target;
 
-  if(clickedElement.id === 'btnUsed') {
-    userPrefs.push('used');
-    buildUsedOptionsPage();
+  switch(clickedElement.id) {
+    case 'btnUsed':
+      userPrefs.push('used');
+      buildUsedOptionsPage();
+      break;
 
-  } else if(clickedElement.id === 'btnNew') {
-    userPrefs.push('new');
-    buildNewOptionsPage();
+    case 'btnNew':
+      userPrefs.push('new');
+      buildNewOptionsPage();
+      break;
   }
 }
 
