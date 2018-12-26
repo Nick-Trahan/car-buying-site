@@ -319,7 +319,7 @@ function clearOldButtons() {
   for(let i = 0; i < prevButtons.length; i++) {
     const element = prevButtons[i];
 
-    element.classList.add('hidden');
+    element.parentNode.removeChild(element);
   }
 }
 
@@ -333,7 +333,7 @@ function resetPage() {
 backBtn.addEventListener('click', goBack);
 
 function goBack() {
-  let userValues = Object.values(userPrefs);
+  let userValues = Object.values(userPrefs); //Object.values is not compatible with IE9
   let lastValue = userValues[userValues.length - 1];
 
   switch (lastValue) {
