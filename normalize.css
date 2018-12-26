@@ -580,8 +580,10 @@ button:active {
   margin-bottom: 1.5em;
 }
 
+.bk-rst-btns {
+  cursor: pointer;
+}
+
 .btn-txt {
   margin-top: 0;
-
-  cursor: pointer;
 }
