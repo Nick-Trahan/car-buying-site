@@ -5,7 +5,7 @@ let btnRow = document.querySelector('#btn-row');
 let resetBtn = document.querySelector('#reset-btn');
 let backBtn = document.querySelector('#back-btn');
 
-let userPrefs = [];
+let userPrefs = {};
 
 getStartedButton.addEventListener('click', buildBudgetPage);
 
@@ -45,17 +45,17 @@ function saveBudget(event) {
   
   switch(clickedElement.id) {
     case 'btnBudgetLo':
-      userPrefs.push('lo bgt');
+      userPrefs.budget = 'low';
       buildEffortPage();
       break;
 
     case 'btnBudgetMid':
-      userPrefs.push('mid bgt');
+      userPrefs.budget = 'mid';
       buildEffortPage();
       break;
 
     case 'btnBudgetHi':
-      userPrefs.push('hi bgt');
+      userPrefs.budget = 'high';
       buildEffortPage();
       break;
   }
@@ -90,12 +90,12 @@ function saveEffort(event) {
 
   switch(clickedElement.id) {
     case 'btnLoEff':
-      userPrefs.push('lo eff');
+      userPrefs.effort = 'won\'t';
       buildConditionPage();
       break;
 
     case 'btnHiEff':
-      userPrefs.push('hi eff');
+      userPrefs.effort = 'will';
       buildConditionPage();
       break;
  }
@@ -116,21 +116,21 @@ function buildConditionPage() {
   btn6.id = 'btnUsed';
   btn7.id = 'btnNew';
 
-  switch(userPrefs[0]) { 
-    case 'lo bgt':
+  switch(userPrefs.budget) { 
+    case 'low':
       bodyTitle.innerHTML = 'Below $5,000';
       bodyText.innerHTML = 'Even more words! LO';
       btnRow.appendChild(btn6);
       break;
 
-    case 'mid bgt':
+    case 'mid':
       bodyTitle.innerHTML = '$5,000 to $14,999';
       bodyText.innerHTML = 'Even more words! MID';
       btnRow.appendChild(btn6);
       btnRow.appendChild(btn7);
       break;
 
-    case 'hi bgt':
+    case 'high':
       bodyTitle.innerHTML = '$15,000 or More';
       bodyText.innerHTML = 'Even more words! HI';
       btnRow.appendChild(btn6);
@@ -146,12 +146,12 @@ function saveCondition(event) {
 
   switch(clickedElement.id) {
     case 'btnUsed':
-      userPrefs.push('used');
+      userPrefs.condition = 'used';
       buildUsedOptionsPage();
       break;
 
     case 'btnNew':
-      userPrefs.push('new');
+      userPrefs.condition = 'new';
       buildNewOptionsPage();
       break;
   }
@@ -188,7 +188,7 @@ function buildUsedOptionsPage() {
   btnRow.appendChild(btn10);
   btnRow.appendChild(btn11);
 
-  if(userPrefs[1] === 'hi eff') {
+  if(userPrefs.effort === 'will') {
     let btn12 = document.createElement('button');
     let theInternetUsed = document.createTextNode('The Internet');
 
@@ -216,7 +216,7 @@ function buildNewOptionsPage() {
 
   btnRow.appendChild(btn13);
 
-  if(userPrefs[1] === 'hi eff') {
+  if(userPrefs.effort === 'will') {
     let btn14 = document.createElement('button');
     let theInternetNew = document.createTextNode('The Internet');
 
@@ -236,37 +236,37 @@ function saveBuyingOption(event) {
   switch(clickedElement.id) {
 
     case 'btnCpo':
-      userPrefs.push('cpo');
+      userPrefs.option = 'cpo';
       buildRequestedPage();
       break;
 
     case 'btnUsedLot':
-      userPrefs.push('used lot');
+      userPrefs.option = 'used lot';
       buildRequestedPage();
       break;
 
     case 'btnBhphLot':
-      userPrefs.push('bhph lot');
+      userPrefs.option = 'bhph lot';
       buildRequestedPage();
       break;
 
     case 'btnPrivateSale':
-      userPrefs.push('private sale');
+      userPrefs.option = 'private sale';
       buildRequestedPage();
       break;
     
     case 'btnInternetUsed':
-      userPrefs.push('internet used');
+      userPrefs.option = 'internet used';
       buildRequestedPage();
       break;
 
     case 'btnNewLot':
-      userPrefs.push('new lot');
+      userPrefs.option = 'new lot';
       buildRequestedPage();
       break;
     
     case 'btnInternetNew':
-      userPrefs.push('internet new');
+      userPrefs.option = 'internet new';
       buildRequestedPage();
       break;
   }
@@ -275,9 +275,7 @@ function saveBuyingOption(event) {
 function buildRequestedPage() {
   clearOldButtons();
 
-  let requestedPage = userPrefs[userPrefs.length - 1];
-
-  switch(requestedPage) {
+  switch(userPrefs.option) {
     case 'cpo':
       bodyTitle.innerHTML = 'Shopping for Certified Pre-Owned';
       bodyText.innerHTML = 'Words about shopping for Certified Pre-Owned cars and trucks.';
@@ -329,32 +327,33 @@ resetBtn.addEventListener('click', resetPage);
 
 function resetPage() {
   buildBudgetPage();
-  userPrefs = [];
+  userPrefs = {};
 }
 
 backBtn.addEventListener('click', goBack);
 
 function goBack() {
-  let lastPage = userPrefs[userPrefs.length - 1]; 
+  let userValues = Object.values(userPrefs);
+  let lastValue = userValues[userValues.length - 1];
 
-  switch (lastPage) {
-    case 'lo bgt':
-    case 'mid bgt':
-    case 'hi bgt':
+  switch (lastValue) {
+    case 'low':
+    case 'mid':
+    case 'high':
       buildBudgetPage();
-      userPrefs.pop();
+      delete userPrefs.budget;
       break;
 
-    case 'lo eff':
-    case 'hi eff':
+    case 'won\'t':
+    case 'will':
       buildEffortPage();
-      userPrefs.pop();
+      delete userPrefs.effort;
       break;
 
     case 'used':
     case 'new':
       buildConditionPage();
-      userPrefs.pop();
+      delete userPrefs.condition;
       break;
 
     case 'cpo':
@@ -363,13 +362,13 @@ function goBack() {
     case 'private sale':
     case 'internet used':
       buildUsedOptionsPage();
-      userPrefs.pop();
+      delete userPrefs.option;
       break;
 
     case 'new lot':
     case 'internet new':
       buildNewOptionsPage();
-      userPrefs.pop();
+      delete userPrefs.option;
       break;
   
     default:
