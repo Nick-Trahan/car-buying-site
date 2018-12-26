@@ -333,7 +333,11 @@ function resetPage() {
 backBtn.addEventListener('click', goBack);
 
 function goBack() {
-  let userValues = Object.values(userPrefs); //Object.values is not compatible with IE9
+  let userValues = Object.keys(userPrefs).map(function (key) {
+    return userPrefs[key];
+    }); // COPY/PASTE from StackOverflow. This is a little beyond my current studies, but I think I get it. I get an array made up of the keys from the userPrefs object, then the .map() method runs a function on each element within that array that returns the value of each key as a new array.
+  
+  // let userValues = Object.values(userPrefs); //Object.values is not compatible with IE, look for alt method.
   let lastValue = userValues[userValues.length - 1];
 
   switch (lastValue) {
