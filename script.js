@@ -1,7 +1,7 @@
 const getStartedButton = document.querySelector('#get-started');
 const bodyTitle = document.querySelector('#body-title');
 const bodyText = document.querySelector('#intro-text');
-const btnRow = document.querySelector('#btn-row');
+const btnDiv = document.querySelector('#btn-div');
 const resetBtn = document.querySelector('#reset-btn');
 const backBtn = document.querySelector('#back-btn');
 
@@ -12,15 +12,15 @@ getStartedButton.addEventListener('click', buildBudgetPage);
 function buildBudgetPage() {
   clearOldButtons();
   
-  document.querySelector('#back-reset-row').removeAttribute('style');
+  // document.querySelector('#back-reset-div').removeAttribute('style');
 
   bodyTitle.textContent = 'What\'s Your Budget?';
   bodyText.textContent = 'Lots of words go here.';
 
   const budgetOptions = [
-  ['$4,999 and Below', 'btnBudgetLo'], 
-  ['$5,000 to $14,999', 'btnBudgetMid'], 
-  ['$15,000 and Up', 'btnBudgetHi']
+    ['$4,999 and Below', 'btnBudgetLo'], 
+    ['$5,000 to $14,999', 'btnBudgetMid'], 
+    ['$15,000 and Up', 'btnBudgetHi']
   ];
 
   addButtons(budgetOptions);
@@ -32,11 +32,11 @@ function addButtons(array) {
 
     btn.textContent = array[i][0];
     btn.id = array[i][1];
-    btnRow.appendChild(btn);
+    btnDiv.appendChild(btn);
   }
 }
 
-btnRow.addEventListener('click', saveBudget);
+btnDiv.addEventListener('click', saveBudget);
 
 function saveBudget(event) {
   const clickedElement = event.target;
@@ -62,7 +62,7 @@ function saveBudget(event) {
 function buildEffortPage() {
   clearOldButtons();
 
-  document.querySelector('#back-reset-row').setAttribute('style', 'display: flex');
+  document.querySelector('#back-reset-div').setAttribute('style', 'display: flex');
 
   bodyTitle.textContent = 'How much work are you willing to put into this?';
   bodyText.textContent = 'Words about effort';
@@ -75,7 +75,7 @@ function buildEffortPage() {
   addButtons(effortOptions);
 }
 
-btnRow.addEventListener('click', saveEffort);
+btnDiv.addEventListener('click', saveEffort);
 
 function saveEffort(event) {
   const clickedElement = event.target;
@@ -123,7 +123,7 @@ function buildConditionPage() {
   }
 }
 
-btnRow.addEventListener('click', saveCondition);
+btnDiv.addEventListener('click', saveCondition);
 
 function saveCondition(event) {
   const clickedElement = event.target;
@@ -160,7 +160,7 @@ function buildUsedOptionsPage() {
     const btn = document.createElement('button');
     btn.textContent = 'The Internet';
     btn.id = 'btnInternetUsed';
-    btnRow.appendChild(btn);
+    btnDiv.appendChild(btn);
   }
 }
 
@@ -171,7 +171,7 @@ function buildNewOptionsPage() {
   bodyText.textContent = 'Words new car shopping';
 
   const newOptions = [
-  ['New Car Dealership', 'btnNewLot']
+    ['New Car Dealership', 'btnNewLot']
   ];
 
   addButtons(newOptions);
@@ -180,11 +180,11 @@ function buildNewOptionsPage() {
     const btn = document.createElement('button');
     btn.textContent = 'The Internet';
     btn.id = 'btnInternetNew';
-    btnRow.appendChild(btn);
+    btnDiv.appendChild(btn);
   }
 }
 
-btnRow.addEventListener('click', saveBuyingOption);
+btnDiv.addEventListener('click', saveBuyingOption);
 
 function saveBuyingOption(event) {
   const clickedElement = event.target;
@@ -270,7 +270,7 @@ function buildRequestedPage() {
 }
 
 function clearOldButtons() {
-  const prevButtons = btnRow.querySelectorAll('button');
+  const prevButtons = btnDiv.querySelectorAll('button');
 
   prevButtons.forEach((button) => {
     button.parentNode.removeChild(button);
@@ -299,6 +299,7 @@ function goBack() {
     case 'mid':
     case 'high':
       buildBudgetPage();
+      document.querySelector('#back-reset-div').removeAttribute('style');
       delete userPrefs.budget;
       break;
 
