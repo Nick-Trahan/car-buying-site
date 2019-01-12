@@ -576,6 +576,7 @@ button:active {
 }
 
 #back-reset-row {
+  display: none;
   justify-content: center;
   margin-bottom: 1.5em;
 }

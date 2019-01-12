@@ -12,8 +12,10 @@ getStartedButton.addEventListener('click', buildBudgetPage);
 function buildBudgetPage() {
   clearOldButtons();
   
-  document.querySelector('#back-reset-row').style.display = 'flex';
+  document.querySelector('#back-reset-row').setAttribute('style', 'display: none');
 
+  //document.querySelector('#back-reset-row').style.display = 'flex';
+  
   bodyTitle.innerHTML = 'What\'s Your Budget?';
   bodyText.innerHTML = 'Lots of words go here.';
   
@@ -63,6 +65,8 @@ function saveBudget(event) {
 
 function buildEffortPage() {
   clearOldButtons();
+
+  document.querySelector('#back-reset-row').setAttribute('style', 'display: flex');
 
   bodyTitle.innerHTML = 'How much work are you willing to put into this?';
   bodyText.innerHTML = 'Words about effort';
