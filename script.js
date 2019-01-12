@@ -12,7 +12,7 @@ getStartedButton.addEventListener('click', buildBudgetPage);
 function buildBudgetPage() {
   clearOldButtons();
   
-  // document.querySelector('#back-reset-div').removeAttribute('style');
+  toggleBackResetDiv('none');
 
   bodyTitle.textContent = 'What\'s Your Budget?';
   bodyText.textContent = 'Lots of words go here.';
@@ -34,6 +34,12 @@ function addButtons(array) {
     btn.id = array[i][1];
     btnDiv.appendChild(btn);
   }
+}
+
+function toggleBackResetDiv(value) {
+  const backResetDiv = document.querySelector('#back-reset-div');
+  
+  backResetDiv.style.display = value;
 }
 
 btnDiv.addEventListener('click', saveBudget);
@@ -62,7 +68,7 @@ function saveBudget(event) {
 function buildEffortPage() {
   clearOldButtons();
 
-  document.querySelector('#back-reset-div').setAttribute('style', 'display: flex');
+  toggleBackResetDiv('flex');
 
   bodyTitle.textContent = 'How much work are you willing to put into this?';
   bodyText.textContent = 'Words about effort';
@@ -299,7 +305,6 @@ function goBack() {
     case 'mid':
     case 'high':
       buildBudgetPage();
-      document.querySelector('#back-reset-div').removeAttribute('style');
       delete userPrefs.budget;
       break;
 
