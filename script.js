@@ -57,7 +57,7 @@ function buildEffortPage() {
   bodyTitle.textContent = 'How much work are you willing to put into this?';
   bodyText.textContent = 'Words about effort';
 
-  const effortOptions= [
+  const effortOptions = [
     ['Won\'t Travel', 'btnLoEff'],
     [ 'Will Travel', 'btnHiEff']
   ];
@@ -96,7 +96,7 @@ function buildConditionPage() {
   switch(userPrefs.budget) { 
     case 'low':
       bodyTitle.textContent = 'Below $5,000';
-      bodyText.textContent = 'Even more words! LO';
+      bodyText.textContent = 'Even more words! LO'; 
       const unneededButton = document.getElementById('btnNew');
       unneededButton.remove();
       break;
