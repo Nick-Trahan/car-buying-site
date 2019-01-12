@@ -16,22 +16,24 @@ function buildBudgetPage() {
 
   bodyTitle.textContent = 'What\'s Your Budget?';
   bodyText.textContent = 'Lots of words go here.';
-  
-  const btn1 = document.createElement('button');
-  const btn2 = document.createElement('button');
-  const btn3 = document.createElement('button');
 
-  btn1.textContent = '$4,999 and Below';
-  btn2.textContent = '$5,000 to $14,999';
-  btn3.textContent = '$15,000 and Up';
+  const budgetOptions = [
+  ['$4,999 and Below', 'btnBudgetLo'], 
+  ['$5,000 to $14,999', 'btnBudgetMid'], 
+  ['$15,000 and Up', 'btnBudgetHi']
+  ];
 
-  btn1.id = 'btnBudgetLo';
-  btn2.id = 'btnBudgetMid';
-  btn3.id = 'btnBudgetHi';
-  
-  btnRow.appendChild(btn1);
-  btnRow.appendChild(btn2);
-  btnRow.appendChild(btn3);
+  addButtons(budgetOptions);
+}
+
+function addButtons(array) {
+  for(let i = 0; i < array.length; i++) {
+    const btn = document.createElement('button');
+
+    btn.textContent = array[i][0];
+    btn.id = array[i][1];
+    btnRow.appendChild(btn);
+  }
 }
 
 btnRow.addEventListener('click', saveBudget);
@@ -65,17 +67,12 @@ function buildEffortPage() {
   bodyTitle.textContent = 'How much work are you willing to put into this?';
   bodyText.textContent = 'Words about effort';
 
-  const btn4 = document.createElement('button');
-  const btn5 = document.createElement('button');
-
-  btn4.textContent = 'Won\'t Travel';
-  btn5.textContent = 'Will Travel';
-
-  btn4.id = 'btnLoEff';
-  btn5.id = 'btnHiEff';
-
-  btnRow.appendChild(btn4);
-  btnRow.appendChild(btn5);
+  const effortOptions= [
+    ['Won\'t Travel', 'btnLoEff'],
+    [ 'Will Travel', 'btnHiEff']
+  ];
+  
+  addButtons(effortOptions);
 }
 
 btnRow.addEventListener('click', saveEffort);
@@ -98,35 +95,30 @@ function saveEffort(event) {
 
 function buildConditionPage() {
   clearOldButtons();
+  
+  const conditionOptions = [
+    ['Shop Pre-Owned', 'btnUsed'],
+    ['Shop New', 'btnNew']
+  ];
 
-  const btn6 = document.createElement('button');
-  const btn7 = document.createElement('button');
-
-  btn6.textContent = 'Shop Pre-Owned';
-  btn7.textContent = 'Shop New';
-
-  btn6.id = 'btnUsed';
-  btn7.id = 'btnNew';
+  addButtons(conditionOptions);
 
   switch(userPrefs.budget) { 
     case 'low':
       bodyTitle.textContent = 'Below $5,000';
       bodyText.textContent = 'Even more words! LO';
-      btnRow.appendChild(btn6);
+      const unneededButton = document.getElementById('btnNew');
+      unneededButton.remove();
       break;
 
     case 'mid':
       bodyTitle.textContent = '$5,000 to $14,999';
       bodyText.textContent = 'Even more words! MID';
-      btnRow.appendChild(btn6);
-      btnRow.appendChild(btn7);
       break;
 
     case 'high':
       bodyTitle.textContent = '$15,000 or More';
       bodyText.textContent = 'Even more words! HI';
-      btnRow.appendChild(btn6);
-      btnRow.appendChild(btn7);
       break;
   }
 }
@@ -155,34 +147,20 @@ function buildUsedOptionsPage() {
   bodyTitle.textContent = 'Used car buying options';
   bodyText.textContent = 'Words used car shopping';
 
-  const btn8 = document.createElement('button');
-  const btn9 = document.createElement('button');
-  const btn10 = document.createElement('button');
-  const btn11 = document.createElement('button');
+  const usedOptions = [
+    ['Certified Pre-Owned', 'btnCpo'],
+    ['Used Dealer Lot', 'btnUsedLot'],
+    ['Buy Here; Pay Here Lot', 'btnBhphLot'],
+    ['Private Sale', 'btnPrivateSale']
+  ];
 
-  btn8.textContent = 'Certified Pre-Owned';
-  btn9.textContent = 'Used Dealer Lot';
-  btn10.textContent = 'Buy Here; Pay Here Lot';
-  btn11.textContent = 'Private Sale';
-
-  btn8.id = 'btnCpo';
-  btn9.id = 'btnUsedLot';
-  btn10.id = 'btnBhphLot';
-  btn11.id = 'btnPrivateSale';
-
-  btnRow.appendChild(btn8);
-  btnRow.appendChild(btn9);
-  btnRow.appendChild(btn10);
-  btnRow.appendChild(btn11);
+  addButtons(usedOptions);
 
   if(userPrefs.effort === 'will') {
-    const btn12 = document.createElement('button');
-
-    btn12.textContent = 'The Internet';
-
-    btn12.id = 'btnInternetUsed';
-
-    btnRow.appendChild(btn12);
+    const btn = document.createElement('button');
+    btn.textContent = 'The Internet';
+    btn.id = 'btnInternetUsed';
+    btnRow.appendChild(btn);
   }
 }
 
@@ -192,22 +170,17 @@ function buildNewOptionsPage() {
   bodyTitle.textContent = 'New car buying options';
   bodyText.textContent = 'Words new car shopping';
 
-  const btn13 = document.createElement('button');
+  const newOptions = [
+  ['New Car Dealership', 'btnNewLot']
+  ];
 
-  btn13.textContent = 'New Car Dealership';
-
-  btn13.id = 'btnNewLot';
-
-  btnRow.appendChild(btn13);
+  addButtons(newOptions);
 
   if(userPrefs.effort === 'will') {
-    const btn14 = document.createElement('button');
-
-    btn14.textContent = 'The Internet';
-
-    btn14.id = 'btnInternetNew';
-
-    btnRow.appendChild(btn14);
+    const btn = document.createElement('button');
+    btn.textContent = 'The Internet';
+    btn.id = 'btnInternetNew';
+    btnRow.appendChild(btn);
   }
 }
 
