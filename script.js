@@ -1,9 +1,9 @@
-let getStartedButton = document.querySelector('#get-started');
-let bodyTitle = document.querySelector('#body-title');
-let bodyText = document.querySelector('#intro-text');
-let btnRow = document.querySelector('#btn-row');
-let resetBtn = document.querySelector('#reset-btn');
-let backBtn = document.querySelector('#back-btn');
+const getStartedButton = document.querySelector('#get-started');
+const bodyTitle = document.querySelector('#body-title');
+const bodyText = document.querySelector('#intro-text');
+const btnRow = document.querySelector('#btn-row');
+const resetBtn = document.querySelector('#reset-btn');
+const backBtn = document.querySelector('#back-btn');
 
 let userPrefs = {};
 
@@ -17,13 +17,13 @@ function buildBudgetPage() {
   bodyTitle.innerHTML = 'What\'s Your Budget?';
   bodyText.innerHTML = 'Lots of words go here.';
   
-  let btn1 = document.createElement('button');
-  let btn2 = document.createElement('button');
-  let btn3 = document.createElement('button');
+  const btn1 = document.createElement('button');
+  const btn2 = document.createElement('button');
+  const btn3 = document.createElement('button');
 
-  let lessThanFive = document.createTextNode('$4,999 and Below');
-  let fiveToFifteen = document.createTextNode('$5,000 to $14,999');
-  let fifteenAndUp = document.createTextNode('$15,000 and Up');
+  const lessThanFive = document.createTextNode('$4,999 and Below');
+  const fiveToFifteen = document.createTextNode('$5,000 to $14,999');
+  const fifteenAndUp = document.createTextNode('$15,000 and Up');
 
   btn1.appendChild(lessThanFive);
   btn2.appendChild(fiveToFifteen);
@@ -41,7 +41,7 @@ function buildBudgetPage() {
 btnRow.addEventListener('click', saveBudget);
 
 function saveBudget(event) {
-  let clickedElement = event.target;
+  const clickedElement = event.target;
   
   switch(clickedElement.id) {
     case 'btnBudgetLo':
@@ -67,11 +67,11 @@ function buildEffortPage() {
   bodyTitle.innerHTML = 'How much work are you willing to put into this?';
   bodyText.innerHTML = 'Words about effort';
 
-  let btn4 = document.createElement('button');
-  let btn5 = document.createElement('button');
+  const btn4 = document.createElement('button');
+  const btn5 = document.createElement('button');
 
-  let labelLoEff = document.createTextNode('Won\'t Travel');
-  let labelHiEff = document.createTextNode('Will Travel');
+  const labelLoEff = document.createTextNode('Won\'t Travel');
+  const labelHiEff = document.createTextNode('Will Travel');
 
   btn4.appendChild(labelLoEff);
   btn5.appendChild(labelHiEff);
@@ -86,7 +86,7 @@ function buildEffortPage() {
 btnRow.addEventListener('click', saveEffort);
 
 function saveEffort(event) {
-  let clickedElement = event.target;
+  const clickedElement = event.target;
 
   switch(clickedElement.id) {
     case 'btnLoEff':
@@ -104,11 +104,11 @@ function saveEffort(event) {
 function buildConditionPage() {
   clearOldButtons();
 
-  let btn6 = document.createElement('button');
-  let btn7 = document.createElement('button');
+  const btn6 = document.createElement('button');
+  const btn7 = document.createElement('button');
 
-  let labelUsed = document.createTextNode('Shop Pre-Owned');
-  let labelNew = document.createTextNode('Shop New');
+  const labelUsed = document.createTextNode('Shop Pre-Owned');
+  const labelNew = document.createTextNode('Shop New');
 
   btn6.appendChild(labelUsed);
   btn7.appendChild(labelNew);
@@ -142,7 +142,7 @@ function buildConditionPage() {
 btnRow.addEventListener('click', saveCondition);
 
 function saveCondition(event) {
-  let clickedElement = event.target;
+  const clickedElement = event.target;
 
   switch(clickedElement.id) {
     case 'btnUsed':
@@ -163,15 +163,15 @@ function buildUsedOptionsPage() {
   bodyTitle.innerHTML = 'Used car buying options';
   bodyText.innerHTML = 'Words used car shopping';
 
-  let btn8 = document.createElement('button');
-  let btn9 = document.createElement('button');
-  let btn10 = document.createElement('button');
-  let btn11 = document.createElement('button');
+  const btn8 = document.createElement('button');
+  const btn9 = document.createElement('button');
+  const btn10 = document.createElement('button');
+  const btn11 = document.createElement('button');
 
-  let certifiedPreOwned = document.createTextNode('Certified Pre-Owned');
-  let usedLot = document.createTextNode('Used Dealer Lot');
-  let bhphLot = document.createTextNode('Buy Here; Pay Here Lot');
-  let privateSale = document.createTextNode('Private Sale');
+  const certifiedPreOwned = document.createTextNode('Certified Pre-Owned');
+  const usedLot = document.createTextNode('Used Dealer Lot');
+  const bhphLot = document.createTextNode('Buy Here; Pay Here Lot');
+  const privateSale = document.createTextNode('Private Sale');
 
   btn8.appendChild(certifiedPreOwned);
   btn9.appendChild(usedLot);
@@ -189,8 +189,8 @@ function buildUsedOptionsPage() {
   btnRow.appendChild(btn11);
 
   if(userPrefs.effort === 'will') {
-    let btn12 = document.createElement('button');
-    let theInternetUsed = document.createTextNode('The Internet');
+    const btn12 = document.createElement('button');
+    const theInternetUsed = document.createTextNode('The Internet');
 
     btn12.appendChild(theInternetUsed);
 
@@ -206,9 +206,9 @@ function buildNewOptionsPage() {
   bodyTitle.innerHTML = 'New car buying options';
   bodyText.innerHTML = 'Words new car shopping';
 
-  let btn13 = document.createElement('button');
+  const btn13 = document.createElement('button');
 
-  let newCarDealer = document.createTextNode('New Car Dealership');
+  const newCarDealer = document.createTextNode('New Car Dealership');
 
   btn13.appendChild(newCarDealer);
 
@@ -217,8 +217,8 @@ function buildNewOptionsPage() {
   btnRow.appendChild(btn13);
 
   if(userPrefs.effort === 'will') {
-    let btn14 = document.createElement('button');
-    let theInternetNew = document.createTextNode('The Internet');
+    const btn14 = document.createElement('button');
+    const theInternetNew = document.createTextNode('The Internet');
 
     btn14.appendChild(theInternetNew);
 
@@ -231,7 +231,7 @@ function buildNewOptionsPage() {
 btnRow.addEventListener('click', saveBuyingOption);
 
 function saveBuyingOption(event) {
-  let clickedElement = event.target;
+  const clickedElement = event.target;
 
   switch(clickedElement.id) {
 
@@ -314,7 +314,7 @@ function buildRequestedPage() {
 }
 
 function clearOldButtons() {
-  let prevButtons = btnRow.querySelectorAll('button');
+  const prevButtons = btnRow.querySelectorAll('button');
 
   for(let i = 0; i < prevButtons.length; i++) {
     const element = prevButtons[i];
@@ -333,12 +333,12 @@ function resetPage() {
 backBtn.addEventListener('click', goBack);
 
 function goBack() {
-  let userValues = Object.keys(userPrefs).map(function (key) {
+  const userValues = Object.keys(userPrefs).map(function (key) {
     return userPrefs[key];
     }); // COPY/PASTE from StackOverflow. This is a little beyond my current studies, but I think I get it. I get an array made up of the keys from the userPrefs object, then the .map() method runs a function on each element within that array that returns the value of each key as a new array.
   
   // let userValues = Object.values(userPrefs); //Object.values is not compatible with IE, look for alt method.
-  let lastValue = userValues[userValues.length - 1];
+  const lastValue = userValues[userValues.length - 1];
 
   switch (lastValue) {
     case 'low':
