@@ -13,9 +13,9 @@ function buildBudgetPage() {
   clearOldButtons();
   
   document.querySelector('#back-reset-row').removeAttribute('style');
-  
-  bodyTitle.innerHTML = 'What\'s Your Budget?';
-  bodyText.innerHTML = 'Lots of words go here.';
+
+  bodyTitle.textContent = 'What\'s Your Budget?';
+  bodyText.textContent = 'Lots of words go here.';
   
   const btn1 = document.createElement('button');
   const btn2 = document.createElement('button');
@@ -66,8 +66,8 @@ function buildEffortPage() {
 
   document.querySelector('#back-reset-row').setAttribute('style', 'display: flex');
 
-  bodyTitle.innerHTML = 'How much work are you willing to put into this?';
-  bodyText.innerHTML = 'Words about effort';
+  bodyTitle.textContent = 'How much work are you willing to put into this?';
+  bodyText.textContent = 'Words about effort';
 
   const btn4 = document.createElement('button');
   const btn5 = document.createElement('button');
@@ -120,21 +120,21 @@ function buildConditionPage() {
 
   switch(userPrefs.budget) { 
     case 'low':
-      bodyTitle.innerHTML = 'Below $5,000';
-      bodyText.innerHTML = 'Even more words! LO';
+      bodyTitle.textContent = 'Below $5,000';
+      bodyText.textContent = 'Even more words! LO';
       btnRow.appendChild(btn6);
       break;
 
     case 'mid':
-      bodyTitle.innerHTML = '$5,000 to $14,999';
-      bodyText.innerHTML = 'Even more words! MID';
+      bodyTitle.textContent = '$5,000 to $14,999';
+      bodyText.textContent = 'Even more words! MID';
       btnRow.appendChild(btn6);
       btnRow.appendChild(btn7);
       break;
 
     case 'high':
-      bodyTitle.innerHTML = '$15,000 or More';
-      bodyText.innerHTML = 'Even more words! HI';
+      bodyTitle.textContent = '$15,000 or More';
+      bodyText.textContent = 'Even more words! HI';
       btnRow.appendChild(btn6);
       btnRow.appendChild(btn7);
       break;
@@ -162,8 +162,8 @@ function saveCondition(event) {
 function buildUsedOptionsPage() {
   clearOldButtons();
 
-  bodyTitle.innerHTML = 'Used car buying options';
-  bodyText.innerHTML = 'Words used car shopping';
+  bodyTitle.textContent = 'Used car buying options';
+  bodyText.textContent = 'Words used car shopping';
 
   const btn8 = document.createElement('button');
   const btn9 = document.createElement('button');
@@ -205,8 +205,8 @@ function buildUsedOptionsPage() {
 function buildNewOptionsPage() {
   clearOldButtons();
 
-  bodyTitle.innerHTML = 'New car buying options';
-  bodyText.innerHTML = 'Words new car shopping';
+  bodyTitle.textContent = 'New car buying options';
+  bodyText.textContent = 'Words new car shopping';
 
   const btn13 = document.createElement('button');
 
@@ -279,38 +279,38 @@ function buildRequestedPage() {
 
   switch(userPrefs.option) {
     case 'cpo':
-      bodyTitle.innerHTML = 'Shopping for Certified Pre-Owned';
-      bodyText.innerHTML = 'Words about shopping for Certified Pre-Owned cars and trucks.';
+      bodyTitle.textContent = 'Shopping for Certified Pre-Owned';
+      bodyText.textContent = 'Words about shopping for Certified Pre-Owned cars and trucks.';
       break;
 
     case 'used lot':  
-      bodyTitle.innerHTML = 'Shopping at Used Car Dealer Lots';
-      bodyText.innerHTML = 'Words about shopping at used car dealer lots.';
+      bodyTitle.textContent = 'Shopping at Used Car Dealer Lots';
+      bodyText.textContent = 'Words about shopping at used car dealer lots.';
       break;
 
     case 'bhph lot':
-      bodyTitle.innerHTML = 'Shopping at Buy-Here, Pay-Here Lots';
-      bodyText.innerHTML = 'Words about shopping at BHPH lots.';
+      bodyTitle.textContent = 'Shopping at Buy-Here, Pay-Here Lots';
+      bodyText.textContent = 'Words about shopping at BHPH lots.';
       break;
     
     case 'private sale':
-      bodyTitle.innerHTML = 'The Private Sale Buying Experience';
-      bodyText.innerHTML = 'Words about buying a car or truck from an individual.';
+      bodyTitle.textContent = 'The Private Sale Buying Experience';
+      bodyText.textContent = 'Words about buying a car or truck from an individual.';
       break;
 
     case 'internet used':
-      bodyTitle.innerHTML = 'Shopping for a Used Car Online';
-      bodyText.innerHTML = 'Words about buying a used car over The Internet.';
+      bodyTitle.textContent = 'Shopping for a Used Car Online';
+      bodyText.textContent = 'Words about buying a used car over The Internet.';
       break;
 
     case 'new lot':
-      bodyTitle.innerHTML = 'Shopping at a New Car Dealership';
-      bodyText.innerHTML = 'Words about the new car buying experience.';
+      bodyTitle.textContent = 'Shopping at a New Car Dealership';
+      bodyText.textContent = 'Words about the new car buying experience.';
       break;
 
     case 'internet new':
-      bodyTitle.innerHTML = 'Shopping for a New Car Online';
-      bodyText.innerHTML = 'Words about buying a new car over The Internet.';
+      bodyTitle.textContent = 'Shopping for a New Car Online';
+      bodyText.textContent = 'Words about buying a new car over The Internet.';
       break;
   }
 }
@@ -318,11 +318,9 @@ function buildRequestedPage() {
 function clearOldButtons() {
   const prevButtons = btnRow.querySelectorAll('button');
 
-  for(let i = 0; i < prevButtons.length; i++) {
-    const element = prevButtons[i];
-
-    element.parentNode.removeChild(element);
-  }
+  prevButtons.forEach((button) => {
+    button.parentNode.removeChild(button);
+  });
 }
 
 resetBtn.addEventListener('click', resetPage);
