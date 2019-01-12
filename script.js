@@ -26,22 +26,6 @@ function buildBudgetPage() {
   addButtons(budgetOptions);
 }
 
-function addButtons(array) {
-  for(let i = 0; i < array.length; i++) {
-    const btn = document.createElement('button');
-
-    btn.textContent = array[i][0];
-    btn.id = array[i][1];
-    btnDiv.appendChild(btn);
-  }
-}
-
-function toggleBackResetDiv(value) {
-  const backResetDiv = document.querySelector('#back-reset-div');
-  
-  backResetDiv.style.display = value;
-}
-
 btnDiv.addEventListener('click', saveBudget);
 
 function saveBudget(event) {
@@ -273,6 +257,22 @@ function buildRequestedPage() {
       bodyText.textContent = 'Words about buying a new car over The Internet.';
       break;
   }
+}
+
+function addButtons(array) {
+  for(let i = 0; i < array.length; i++) {
+    const btn = document.createElement('button');
+
+    btn.textContent = array[i][0];
+    btn.id = array[i][1];
+    btnDiv.appendChild(btn);
+  }
+}
+
+function toggleBackResetDiv(value) {
+  const backResetDiv = document.querySelector('#back-reset-div');
+  
+  backResetDiv.style.display = value;
 }
 
 function clearOldButtons() {
