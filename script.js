@@ -21,13 +21,9 @@ function buildBudgetPage() {
   const btn2 = document.createElement('button');
   const btn3 = document.createElement('button');
 
-  const lessThanFive = document.createTextNode('$4,999 and Below');
-  const fiveToFifteen = document.createTextNode('$5,000 to $14,999');
-  const fifteenAndUp = document.createTextNode('$15,000 and Up');
-
-  btn1.appendChild(lessThanFive);
-  btn2.appendChild(fiveToFifteen);
-  btn3.appendChild(fifteenAndUp);
+  btn1.textContent = '$4,999 and Below';
+  btn2.textContent = '$5,000 to $14,999';
+  btn3.textContent = '$15,000 and Up';
 
   btn1.id = 'btnBudgetLo';
   btn2.id = 'btnBudgetMid';
@@ -72,11 +68,8 @@ function buildEffortPage() {
   const btn4 = document.createElement('button');
   const btn5 = document.createElement('button');
 
-  const labelLoEff = document.createTextNode('Won\'t Travel');
-  const labelHiEff = document.createTextNode('Will Travel');
-
-  btn4.appendChild(labelLoEff);
-  btn5.appendChild(labelHiEff);
+  btn4.textContent = 'Won\'t Travel';
+  btn5.textContent = 'Will Travel';
 
   btn4.id = 'btnLoEff';
   btn5.id = 'btnHiEff';
@@ -109,11 +102,8 @@ function buildConditionPage() {
   const btn6 = document.createElement('button');
   const btn7 = document.createElement('button');
 
-  const labelUsed = document.createTextNode('Shop Pre-Owned');
-  const labelNew = document.createTextNode('Shop New');
-
-  btn6.appendChild(labelUsed);
-  btn7.appendChild(labelNew);
+  btn6.textContent = 'Shop Pre-Owned';
+  btn7.textContent = 'Shop New';
 
   btn6.id = 'btnUsed';
   btn7.id = 'btnNew';
@@ -170,15 +160,10 @@ function buildUsedOptionsPage() {
   const btn10 = document.createElement('button');
   const btn11 = document.createElement('button');
 
-  const certifiedPreOwned = document.createTextNode('Certified Pre-Owned');
-  const usedLot = document.createTextNode('Used Dealer Lot');
-  const bhphLot = document.createTextNode('Buy Here; Pay Here Lot');
-  const privateSale = document.createTextNode('Private Sale');
-
-  btn8.appendChild(certifiedPreOwned);
-  btn9.appendChild(usedLot);
-  btn10.appendChild(bhphLot);
-  btn11.appendChild(privateSale);
+  btn8.textContent = 'Certified Pre-Owned';
+  btn9.textContent = 'Used Dealer Lot';
+  btn10.textContent = 'Buy Here; Pay Here Lot';
+  btn11.textContent = 'Private Sale';
 
   btn8.id = 'btnCpo';
   btn9.id = 'btnUsedLot';
@@ -192,9 +177,8 @@ function buildUsedOptionsPage() {
 
   if(userPrefs.effort === 'will') {
     const btn12 = document.createElement('button');
-    const theInternetUsed = document.createTextNode('The Internet');
 
-    btn12.appendChild(theInternetUsed);
+    btn12.textContent = 'The Internet';
 
     btn12.id = 'btnInternetUsed';
 
@@ -210,9 +194,7 @@ function buildNewOptionsPage() {
 
   const btn13 = document.createElement('button');
 
-  const newCarDealer = document.createTextNode('New Car Dealership');
-
-  btn13.appendChild(newCarDealer);
+  btn13.textContent = 'New Car Dealership';
 
   btn13.id = 'btnNewLot';
 
@@ -220,9 +202,8 @@ function buildNewOptionsPage() {
 
   if(userPrefs.effort === 'will') {
     const btn14 = document.createElement('button');
-    const theInternetNew = document.createTextNode('The Internet');
 
-    btn14.appendChild(theInternetNew);
+    btn14.textContent = 'The Internet';
 
     btn14.id = 'btnInternetNew';
 
