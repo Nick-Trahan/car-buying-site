@@ -12,9 +12,7 @@ getStartedButton.addEventListener('click', buildBudgetPage);
 function buildBudgetPage() {
   clearOldButtons();
   
-  document.querySelector('#back-reset-row').setAttribute('style', 'display: none');
-
-  //document.querySelector('#back-reset-row').style.display = 'flex';
+  document.querySelector('#back-reset-row').removeAttribute('style');
   
   bodyTitle.innerHTML = 'What\'s Your Budget?';
   bodyText.innerHTML = 'Lots of words go here.';
