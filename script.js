@@ -11,7 +11,6 @@ getStartedButton.addEventListener('click', buildBudgetPage);
 
 function buildBudgetPage() {
   clearOldButtons();
-  
   toggleBackResetDiv('none');
 
   bodyTitle.textContent = 'What\'s Your Budget?';
@@ -24,14 +23,12 @@ function buildBudgetPage() {
   ];
 
   addButtons(budgetOptions);
-}
+} 
 
-btnDiv.addEventListener('click', saveBudget);
+btnDiv.addEventListener('click', function (event) {const clickedElement = event.target; saveBudget(clickedElement);});
 
-function saveBudget(event) {
-  const clickedElement = event.target;
-  
-  switch(clickedElement.id) {
+function saveBudget(element) {
+  switch(element.id) {
     case 'btnBudgetLo':
       userPrefs.budget = 'low';
       buildEffortPage();
@@ -51,7 +48,6 @@ function saveBudget(event) {
 
 function buildEffortPage() {
   clearOldButtons();
-
   toggleBackResetDiv('flex');
 
   bodyTitle.textContent = 'How much work are you willing to put into this?';
@@ -65,12 +61,10 @@ function buildEffortPage() {
   addButtons(effortOptions);
 }
 
-btnDiv.addEventListener('click', saveEffort);
+btnDiv.addEventListener('click', function (event) {const clickedElement = event.target; saveEffort(clickedElement);});
 
-function saveEffort(event) {
-  const clickedElement = event.target;
-
-  switch(clickedElement.id) {
+function saveEffort(element) {
+  switch(element.id) {
     case 'btnLoEff':
       userPrefs.effort = 'won\'t';
       buildConditionPage();
@@ -113,12 +107,10 @@ function buildConditionPage() {
   }
 }
 
-btnDiv.addEventListener('click', saveCondition);
+btnDiv.addEventListener('click', function (event) {const clickedElement = event.target; saveCondition(clickedElement);});
 
-function saveCondition(event) {
-  const clickedElement = event.target;
-
-  switch(clickedElement.id) {
+function saveCondition(element) {
+  switch(element.id) {
     case 'btnUsed':
       userPrefs.condition = 'used';
       buildUsedOptionsPage();
@@ -174,12 +166,10 @@ function buildNewOptionsPage() {
   }
 }
 
-btnDiv.addEventListener('click', saveBuyingOption);
+btnDiv.addEventListener('click', function (event) {const clickedElement = event.target; saveBuyingOption(clickedElement);});
 
-function saveBuyingOption(event) {
-  const clickedElement = event.target;
-
-  switch(clickedElement.id) {
+function saveBuyingOption(element) {
+  switch(element.id) {
 
     case 'btnCpo':
       userPrefs.option = 'cpo';
