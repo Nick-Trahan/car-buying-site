@@ -25,7 +25,7 @@ function buildBudgetPage() {
   addButtons(budgetOptions);
 } 
 
-btnDiv.addEventListener('click', function (event) {const clickedElement = event.target; saveBudget(clickedElement);});
+btnDiv.addEventListener('click', function (event) {const chosenBudget = event.target; saveBudget(chosenBudget);});
 
 function saveBudget(element) {
   switch(element.id) {
@@ -61,7 +61,7 @@ function buildEffortPage() {
   addButtons(effortOptions);
 }
 
-btnDiv.addEventListener('click', function (event) {const clickedElement = event.target; saveEffort(clickedElement);});
+btnDiv.addEventListener('click', function (event) {const chosenEffort = event.target; saveEffort(chosenEffort);});
 
 function saveEffort(element) {
   switch(element.id) {
@@ -107,7 +107,7 @@ function buildConditionPage() {
   }
 }
 
-btnDiv.addEventListener('click', function (event) {const clickedElement = event.target; saveCondition(clickedElement);});
+btnDiv.addEventListener('click', function (event) {const chosenCondition = event.target; saveCondition(chosenCondition);});
 
 function saveCondition(element) {
   switch(element.id) {
@@ -166,7 +166,7 @@ function buildNewOptionsPage() {
   }
 }
 
-btnDiv.addEventListener('click', function (event) {const clickedElement = event.target; saveBuyingOption(clickedElement);});
+btnDiv.addEventListener('click', function (event) {const chosenOption = event.target; saveBuyingOption(chosenOption);});
 
 function saveBuyingOption(element) {
   switch(element.id) {
@@ -261,7 +261,7 @@ function addButtons(array) {
 
 function toggleBackResetDiv(value) {
   const backResetDiv = document.querySelector('#back-reset-div');
-  
+
   backResetDiv.style.display = value;
 }
 
@@ -273,12 +273,7 @@ function clearOldButtons() {
   });
 }
 
-resetBtn.addEventListener('click', resetPage);
-
-function resetPage() {
-  buildBudgetPage();
-  userPrefs = {};
-}
+resetBtn.addEventListener('click', function () {buildBudgetPage(); userPrefs = {};});
 
 backBtn.addEventListener('click', goBack);
 
@@ -323,11 +318,6 @@ function goBack() {
     case 'internet new':
       buildNewOptionsPage();
       delete userPrefs.option;
-      break;
-  
-    default:
-      resetPage();
-      console.log('It broke :(');
       break;
   }
 }
